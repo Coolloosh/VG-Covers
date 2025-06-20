@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import PageHero from './PageHero';
 
 const merchItems = [
-  { id: "SkullShirt", name: "VG Skull Tee", price: 2000, image: "/SkullShirt.webp", badge: "New" },
-  { id: "OGShirt", name: "OG Tee", price: 2000, image: "/OGShirt.webp", badge: "Hot" },
+  { id: "SkullShirt", name: "VG Skull Tee", price: 2500, image: "/SkullShirt.webp", badge: "New" },
+  { id: "OGShirt", name: "OG Tee", price: 2500, image: "/OGShirt.webp", badge: "Hot" },
   { id: "stickerpack", name: "Sticker Pack", price: 1000, image: "/stickerpack.webp" },
   { id: "poster", name: "Show Poster Medley", price: 500, image: "/posters.webp", badge: "Limited" },
 ];
@@ -60,7 +60,7 @@ export default function InPersonCheckout() {
       <PageHero
         image="/merch6.webp"
         title="In-Person Checkout"
-        subtitle="Scan to pay. No shipping will be collected."
+        subtitle="Buy in person. No shipping will be collected."
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
         imageClass="object-[55%_top] sm:object-top brightness-50 scale-85"
       />
