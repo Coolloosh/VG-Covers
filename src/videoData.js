@@ -404,7 +404,7 @@ export const showData = {
       date: "May 10, 2025",
       location: "Newark, DE",
       poster: "/showposters/swim2.webp",
-      heroImages: ["/SWIMPHOTOS/Image93.webp"],
+      heroImages: ["/SWIMPHOTOS/Image13.webp"],
       flyerImage: "showposters/swim2.webp",
       photos: Array.from({ length: 17 }, (_, i) =>
         `/SWIMPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
@@ -473,9 +473,9 @@ export const showData = {
       date: "May 3, 2025",
       location: "Newark, DE",
       poster: "/showposters/UDRESS.webp",
-      heroImages: ["/UDRESSPHOTOS/Image93.webp"],
+      heroImages: ["/showposters/UDRESS.webp"],
       flyerImage: "showposters/UDRESS.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 0 }, (_, i) =>
         `/UDRESSPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -496,7 +496,7 @@ export const showData = {
       poster: "/showposters/DP52.webp",
       heroImages: ["/DP52PHOTOS/Image93.webp"],
       flyerImage: "showposters/DP52.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 12 }, (_, i) =>
         `/DP52PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -515,9 +515,9 @@ export const showData = {
       date: "May 3, 2025",
       location: "Newark, DE",
       poster: "/showposters/UDANCE.webp",
-      heroImages: ["/UDANCEPHOTOS/Image93.webp"],
+      heroImages: ["/showposters/UDANCE.webp"],
       flyerImage: "showposters/UDANCE.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 0 }, (_, i) =>
         `/UDANCEPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
