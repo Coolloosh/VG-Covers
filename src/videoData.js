@@ -357,9 +357,9 @@ export const showData = {
       date: "May 16, 2025",
       location: "Newark, DE",
       poster: "/showposters/trapt.webp",
-      heroImages: ["/TRAPTPHOTOS/Image93.webp"],
+      heroImages: ["/showposters/trapt.webp"],
       flyerImage: "showposters/trapt.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 0 }, (_, i) =>
         `/TRAPTPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -383,9 +383,9 @@ export const showData = {
       date: "March 8, 2025",
       location: "Newark, DE",
       poster: "/showposters/botb3.webp",
-      heroImages: ["/BOTB3PHOTOS/Image93.webp"],
+      heroImages: ["/BOTB3PHOTOS/Image02.webp"],
       flyerImage: "showposters/botb3.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 7 }, (_, i) =>
         `/BOTB3PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
