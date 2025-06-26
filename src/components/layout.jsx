@@ -254,7 +254,9 @@ export default function Layout() {
                   </span>
                 )}
               </button>
-              <NavLink to="/login" className="hover:text-green-400"><User size={20} /></NavLink>
+            { /* <NavLink to="/login" className="hover:text-green-400"><User size={20} /></NavLink>*/}
+              <NavLink to="/" className="hover:text-green-400"><User size={20} /></NavLink>
+
             </div>
           </div>
         </div>
