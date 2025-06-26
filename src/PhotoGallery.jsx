@@ -49,7 +49,7 @@ export default function PhotoGallery() {
                   src={collection.thumbnail}
                   alt={`${collection.title} photo`}
                   onError={(e) => {
-                    const fallback = showData[collection.slug]?.heroImages?.[0] || '/fallback.jpg';
+                    const fallback = showData[collection.slug]?.show.poster|| '/fallback.jpg';
                     e.target.onerror = null; // Prevent infinite loop
                     e.target.src = fallback;
                   }}
