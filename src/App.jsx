@@ -88,7 +88,7 @@ export default function App() {
             
             <Route path="/shows/deer-park-11-29" element={<DeerParkShow1 />} />
             <Route path="/shows/conch-4-26" element={<ConchIslandShow1 />} />
-            <Route path="/shows/smyrna" element={<SMYRNA />} />
+            <Route path="/shows/smyrna" element={<SmyrnaShow />} />
             <Route path="/shows/conch-6-20" element={<ConchIsland2Show />} />
             <Route path="/shows/punkflea" element={<PunkShow />} />
             <Route path="/shows/cats" element={<CatsShow />} />
