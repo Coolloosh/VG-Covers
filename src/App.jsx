@@ -15,7 +15,7 @@ import SWIM from "./shows/swim.jsx";
 import TRAPT from "./shows/trapt.jsx";
 import UDRESS from "./shows/udress.jsx";
 import UNION from "./shows/union.jsx";
-import Layout from './shows/components/layout.jsx';
+import Layout from './components/layout.jsx';
 import BandPage from './BandPage'; // ✅ NEW IMPORT
 import MusicCatalog from './MusicCatalog';
 import MusicRelease from './MusicRelease';
