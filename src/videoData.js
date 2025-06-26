@@ -472,9 +472,9 @@ export const showData = {
       pagetitle: "Live at Trabant 5/3",
       date: "May 3, 2025",
       location: "Newark, DE",
-      poster: "/showposters/udress.webp",
+      poster: "/showposters/UDRESS.webp",
       heroImages: ["/UDRESSPHOTOS/Image93.webp"],
-      flyerImage: "showposters/udress.webp",
+      flyerImage: "showposters/UDRESS.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/UDRESSPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -493,9 +493,9 @@ export const showData = {
       pagetitle: "Live in Newark 5/2",
       date: "May 2, 2025",
       location: "Newark, DE",
-      poster: "/showposters/dp52.webp",
+      poster: "/showposters/DP52.webp",
       heroImages: ["/DP52PHOTOS/Image93.webp"],
-      flyerImage: "showposters/dp52.webp",
+      flyerImage: "showposters/DP52.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/DP52PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -514,9 +514,9 @@ export const showData = {
       pagetitle: "Live in Perkins 5/3 (accompanied by Lex from Crashout)",
       date: "May 3, 2025",
       location: "Newark, DE",
-      poster: "/showposters/UDANCEBOTB.webp",
+      poster: "/showposters/UDANCE.webp",
       heroImages: ["/UDANCEPHOTOS/Image93.webp"],
-      flyerImage: "showposters/UDANCEBOTB.webp",
+      flyerImage: "showposters/UDANCE.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/UDANCEPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
