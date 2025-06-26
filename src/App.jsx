@@ -5,16 +5,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VanyllaGodzyllaSite from './VanyllaGodzyllaSite';
 import DeerParkShow1 from './shows/deer-park-11-29.jsx';
 import ConchIslandShow1 from "./shows/conch-4-26.jsx";
-import BOTB3 from "./shows/botb3.jsx";
-import CATS from "./shows/cats.jsx";
-import CONCH2 from "./shows/conch-6-20.jsx";
-import DPBOTB from "./shows/dpbotb.jsx";
-import PUNK from "./shows/punkflea.jsx";
-import SMYRNA from "./shows/smyrna.jsx";
-import SWIM from "./shows/swim.jsx";
-import TRAPT from "./shows/trapt.jsx";
-import UDRESS from "./shows/udress.jsx";
-import UNION from "./shows/union.jsx";
+import BOTB3Show from "./shows/botb3.jsx";
+import CatsShow from "./shows/cats.jsx";
+import ConchIsland2Show from "./shows/conch-6-20.jsx";
+import DPBOTBShow from "./shows/dpbotb.jsx";
+import PunkShow from "./shows/punkflea.jsx";
+import SmyrnaShow from "./shows/smyrna.jsx";
+import SwimShow from "./shows/swim.jsx";
+import TraptShow from "./shows/trapt.jsx";
+import UdressShow from "./shows/udress.jsx";
+import UnionShow from "./shows/union.jsx";
 import Layout from './components/layout.jsx';
 import BandPage from './BandPage'; // ✅ NEW IMPORT
 import MusicCatalog from './MusicCatalog';
@@ -38,6 +38,7 @@ import ShowDetail from './ShowDetail';
 import ScrollToTop from './ScrollToTop';
 import CoverRelease from "./CoverRelease.jsx";
 import InPersonCheckout from "./InPersonCheckout.jsx";
+import { Cat } from "lucide-react";
 
 
 
@@ -88,15 +89,15 @@ export default function App() {
             <Route path="/shows/deer-park-11-29" element={<DeerParkShow1 />} />
             <Route path="/shows/conch-4-26" element={<ConchIslandShow1 />} />
             <Route path="/shows/smyrna" element={<SMYRNA />} />
-            <Route path="/shows/conch-6-20" element={<CONCH2 />} />
-            <Route path="/shows/punkflea" element={<PUNK />} />
-            <Route path="/shows/cats" element={<CATS />} />
-            <Route path="/shows/trapt" element={<TRAPT />} />
-            <Route path="/shows/dpbotb" element={<DPBOTB />} />
-            <Route path="/shows/botb3" element={<BOTB3 />} />
-            <Route path="/shows/udress" element={<UDRESS />} />
-            <Route path="/shows/union" element={<UNION />} />
-            <Route path="/shows/swim" element={<SWIM />} />
+            <Route path="/shows/conch-6-20" element={<ConchIsland2Show />} />
+            <Route path="/shows/punkflea" element={<PunkShow />} />
+            <Route path="/shows/cats" element={<CatsShow />} />
+            <Route path="/shows/trapt" element={<TraptShow />} />
+            <Route path="/shows/dpbotb" element={<DPBOTBShow />} />
+            <Route path="/shows/botb3" element={<BOTB3Show />} />
+            <Route path="/shows/udress" element={<UdressShow />} />
+            <Route path="/shows/union" element={<UnionShow />} />
+            <Route path="/shows/swim" element={<SwimShow />} />
           
 
 
