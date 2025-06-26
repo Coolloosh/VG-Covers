@@ -2,8 +2,8 @@ import React from 'react';
 import ShowDetailPage from '../components/ShowDetailPage';
 import { showData } from '../videoData';
 
-export default function ConchIsland2Show() {
-  const data = showData['conch-6-20'];
+export default function DPBOTBShow() {
+  const data = showData['dpbotb'];
 
   return <ShowDetailPage {...data} />;
 }

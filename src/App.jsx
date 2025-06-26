@@ -5,6 +5,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VanyllaGodzyllaSite from './VanyllaGodzyllaSite';
 import DeerParkShow1 from './shows/deer-park-11-29.jsx';
 import ConchIslandShow1 from "./shows/conch-4-26.jsx";
+import BOTB3 from "./shows/botb3.jsx";
+import CATS from "./shows/cats.jsx";
+import CONCH2 from "./shows/conch-6-20.jsx";
+import DPBOTB from "./shows/dpbotb.jsx";
+import PUNK from "./punkflea.jsx";
+import SMYRNA from "./smyrna.jsx";
+import SWIM from "./swim.jsx";
+import TRAPT from "./trapt.jsx";
+import UDRESS from "./udress.jsx";
+import UNION from "./union.jsx";
 import Layout from './components/layout.jsx';
 import BandPage from './BandPage'; // ✅ NEW IMPORT
 import MusicCatalog from './MusicCatalog';
@@ -73,8 +83,25 @@ export default function App() {
             <Route path="/shows" element={<UpcomingShowsPage />} />
             <Route path="/shows/:slug" element={<ShowDetail />} />
             <Route path="/past-shows" element={<PastShowsPage />} />
+
+            
             <Route path="/shows/deer-park-11-29" element={<DeerParkShow1 />} />
             <Route path="/shows/conch-4-26" element={<ConchIslandShow1 />} />
+            <Route path="/shows/smyrna" element={<SMYRNA />} />
+            <Route path="/shows/conch-6-20" element={<CONCH2 />} />
+            <Route path="/shows/punkflea" element={<PUNK />} />
+            <Route path="/shows/cats" element={<CATS />} />
+            <Route path="/shows/trapt" element={<TRAPT />} />
+            <Route path="/shows/dpbotb" element={<DPBOTB />} />
+            <Route path="/shows/botb3" element={<BOTB3 />} />
+            <Route path="/shows/udress" element={<UDRESS />} />
+            <Route path="/shows/union" element={<UNION />} />
+            <Route path="/shows/swim" element={<SWIM />} />
+          
+
+
+
+
             <Route path="/gallery/photos" element={<PhotoGallery />} />
             <Route path="/gallery/videos" element={<VideoGallery />} />
             <Route path="/gallery/photos/:slug" element={<PhotoGalleryDetail />} />
