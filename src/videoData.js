@@ -130,6 +130,8 @@ export const showData = {
       title: "Live at Deer Park 3/7",
       heroImages: ["/band2.webp"],
       videos: [
+        "lKAoMPVZjPA", 
+        "njNXVgItRrQ",
         "n7u4uDErGx4",
         "6ibyAyEUBaI",
         "XRWI3JZr-oY",
@@ -482,6 +484,57 @@ export const showData = {
       setlist: [{ title: "Jessie's Girl" },
         { title: "111" },
         { title: "Everlong" },
+       
+      ] // Add setlist once available
+    },
+
+    "dp-5-2": {
+      title: "VG At Deer Park Tavern",
+      pagetitle: "Live in Newark 5/2",
+      date: "May 2, 2025",
+      location: "Newark, DE",
+      poster: "/showposters/dp52.webp",
+      heroImages: ["/DP52PHOTOS/Image93.webp"],
+      flyerImage: "showposters/dp52.webp",
+      photos: Array.from({ length: 223 }, (_, i) =>
+        `/DP52PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
+      ),
+      videos: [
+        "cpibspIbMSA"
+      ],
+      setlist: [{ title: "Jessie's Girl" },
+        { title: "111" },
+        { title: "Everlong" },
+       
+      ] // Add setlist once available
+    },
+    
+    "UDANCEBOTB": {
+      title: "VG At UDance BOTB",
+      pagetitle: "Live in Perkins 5/3 (accompanied by Lex from Crashout)",
+      date: "May 3, 2025",
+      location: "Newark, DE",
+      poster: "/showposters/UDANCEBOTB.webp",
+      heroImages: ["/UDANCEPHOTOS/Image93.webp"],
+      flyerImage: "showposters/UDANCEBOTB.webp",
+      photos: Array.from({ length: 223 }, (_, i) =>
+        `/UDANCEPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
+      ),
+      videos: [
+        "SLtvzkSch7Y", "INykdmb_llQ", "noTDq7pnfUo", "A_11INrEEy8",
+        "SP8wjamfwxQ", "6Kl7cCHjuiQ", "mn2hx0V-0Oc", "424uRmJh7rM",
+        "Bk5au-c22Ts", "MRvpBt4bo_g", 
+        "y66n-K9xwdo"
+      ],
+      setlist: [{ title: "Stacy's Mom" },
+        { title: "Teenage Dirtbag" },
+        { title: "All the Small Things" },
+        { title: "Zombie" },
+        { title: "Sunday Morning" },
+        { title: "Two Weeks Past" },
+        { title: "Flies of Desire" },
+        { title: "Everlong" },
+        { title: "Killing in the Name" },
        
       ] // Add setlist once available
     },

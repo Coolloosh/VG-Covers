@@ -4,6 +4,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VanyllaGodzyllaSite from './VanyllaGodzyllaSite';
 import DeerParkShow1 from './shows/deer-park-11-29.jsx';
+import DeerParkShow2 from './shows/dp-3-7.jsx';
+import DeerParkShow3 from './shows/dp-5-2.jsx';
+import UdanceShow from "./shows/UDANCEBOTB.jsx";
 import ConchIslandShow1 from "./shows/conch-4-26.jsx";
 import BOTB3Show from "./shows/botb3.jsx";
 import CatsShow from "./shows/cats.jsx";
@@ -87,6 +90,9 @@ export default function App() {
 
             
             <Route path="/shows/deer-park-11-29" element={<DeerParkShow1 />} />
+            <Route path="/shows/dp-3-7" element={<DeerParkShow2 />} />
+            <Route path="/shows/dp-5-2" element={<DeerParkShow3 />} />
+            <Route path="/shows/UDANCEBOTB" element={<UdanceShow />} />
             <Route path="/shows/conch-4-26" element={<ConchIslandShow1 />} />
             <Route path="/shows/smyrna" element={<SmyrnaShow />} />
             <Route path="/shows/conch-6-20" element={<ConchIsland2Show />} />
