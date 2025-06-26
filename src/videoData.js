@@ -176,7 +176,7 @@ export const showData = {
       location: "Rehobeth Beach, DE",
       poster: "/showposters/conch620.webp",
       heroImages: ["/CONCH620PHOTOS/Image93.webp"],
-      flyerImage: "/showposters/conch620.webp",
+      flyerImage: "showposters/conch620.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/CONCH620PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -227,7 +227,7 @@ export const showData = {
       location: "Smyrna, DE",
       poster: "/showposters/smyrna.webp",
       heroImages: ["/SMYRNAPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/smyrna.webp",
+      flyerImage: "showposters/smyrna.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/SMYRNAPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -254,7 +254,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/punkflea.webp",
       heroImages: ["/PUNKPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/punkflea.webp",
+      flyerImage: "showposters/punkflea.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/PUNKPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -279,7 +279,7 @@ export const showData = {
       location: "Cherry Hill, NJ",
       poster: "/showposters/ ",
       heroImages: ["/CATPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/ ",
+      flyerImage: "showposters/ ",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/CATPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -323,7 +323,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/dpbotb.webp",
       heroImages: ["/DPBOTBPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/dpbotb.webp",
+      flyerImage: "showposters/dpbotb.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/DPBOTBPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -356,7 +356,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/trapt.webp",
       heroImages: ["/TRAPTPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/trapt.webp",
+      flyerImage: "showposters/trapt.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/TRAPTPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -382,7 +382,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/botb3.webp",
       heroImages: ["/BOTB3PHOTOS/Image93.webp"],
-      flyerImage: "/showposters/botb3.webp",
+      flyerImage: "showposters/botb3.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/BOTB3PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -403,7 +403,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/swim2.webp",
       heroImages: ["/SWIMPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/swim2.webp",
+      flyerImage: "showposters/swim2.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/SWIMPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -446,7 +446,7 @@ export const showData = {
       location: "Mount Holly, NJ",
       poster: "/showposters/union2.webp",
       heroImages: ["/UNIONPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/union2.webp",
+      flyerImage: "showposters/union2.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/UNIONPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
@@ -472,7 +472,7 @@ export const showData = {
       location: "Newark, DE",
       poster: "/showposters/udress.webp",
       heroImages: ["/UDRESSPHOTOS/Image93.webp"],
-      flyerImage: "/showposters/udress.webp",
+      flyerImage: "showposters/udress.webp",
       photos: Array.from({ length: 223 }, (_, i) =>
         `/UDRESSPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
