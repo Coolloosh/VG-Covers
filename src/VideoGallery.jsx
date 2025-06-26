@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageHero from './PageHero';
 import { showData } from './videoData';
 
+
 export default function VideoGallery() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -49,12 +50,17 @@ export default function VideoGallery() {
               }`}
             >
               <img
-                src={collection.thumbnail}
-                alt={`${collection.title} video`}
-                className={`w-full h-64 object-cover transition-transform duration-300 ${
-                  !isMobile ? 'group-hover:scale-105' : ''
-                }`}
-              />
+              src={collection.thumbnail}
+              alt={`${collection.title} video`}
+              onError={(e) => {
+                const fallback = showData[collection.slug]?.heroImages?.[0] || '/fallback.jpg';
+                e.target.onerror = null; // Prevent infinite loop
+                e.target.src = fallback;
+              }}
+              className={`w-full h-64 object-cover transition-transform duration-300 ${
+                !isMobile ? 'group-hover:scale-105' : ''
+              }`}
+            />
               <div className="p-5">
                 <h3 className="text-green-400 text-xl font-bold mb-1">{collection.date}</h3>
                 <p className="text-white text-lg font-semibold">{collection.title}</p>
