@@ -230,7 +230,7 @@ export const showData = {
       poster: "/showposters/smyrna.webp",
       heroImages: ["/SMYRNAPHOTOS/Image93.webp"],
       flyerImage: "showposters/smyrna.webp",
-      photos: Array.from({ length: 746 }, (_, i) =>
+      photos: Array.from({ length: 747 }, (_, i) =>
         `/SMYRNAPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
