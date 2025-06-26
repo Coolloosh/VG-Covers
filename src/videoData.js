@@ -279,9 +279,9 @@ export const showData = {
       pagetitle: "Live in Jersey 6/14",
       date: "June 14, 2025",
       location: "Cherry Hill, NJ",
-      poster: "/CATPHOTOS/Image00.webp",
-      heroImages: ["/CATPHOTOS/Image00.webp"],
-      flyerImage: "CATPHOTOS/Image00.webp",
+      poster: "/CATPHOTOS/Image01.webp",
+      heroImages: ["/CATPHOTOS/Image01.webp"],
+      flyerImage: "CATPHOTOS/Image01.webp",
       photos: Array.from({ length: 2 }, (_, i) =>
         `/CATPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
