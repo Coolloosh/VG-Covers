@@ -179,7 +179,7 @@ export const showData = {
       poster: "/showposters/conch620.webp",
       heroImages: ["/CONCH620PHOTOS/Image93.webp"],
       flyerImage: "showposters/conch620.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 506 }, (_, i) =>
         `/CONCH620PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -230,7 +230,7 @@ export const showData = {
       poster: "/showposters/smyrna.webp",
       heroImages: ["/SMYRNAPHOTOS/Image93.webp"],
       flyerImage: "showposters/smyrna.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 746 }, (_, i) =>
         `/SMYRNAPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -282,7 +282,7 @@ export const showData = {
       poster: "/showposters/ ",
       heroImages: ["/CATPHOTOS/Image93.webp"],
       flyerImage: "showposters/ ",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 2 }, (_, i) =>
         `/CATPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
