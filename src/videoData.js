@@ -255,9 +255,9 @@ export const showData = {
       date: "May 4, 2025",
       location: "Newark, DE",
       poster: "/showposters/punkflea.webp",
-      heroImages: ["/PUNKPHOTOS/Image93.webp"],
+      heroImages: ["/PUNKPHOTOS/Image01.webp"],
       flyerImage: "showposters/punkflea.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 2 }, (_, i) =>
         `/PUNKPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -324,9 +324,9 @@ export const showData = {
       date: "May 14, 2025",
       location: "Newark, DE",
       poster: "/showposters/dpbotb.webp",
-      heroImages: ["/DPBOTBPHOTOS/Image93.webp"],
+      heroImages: ["/showposters/dpbotb.webp"],
       flyerImage: "showposters/dpbotb.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 0 }, (_, i) =>
         `/DPBOTBPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -406,7 +406,7 @@ export const showData = {
       poster: "/showposters/swim2.webp",
       heroImages: ["/SWIMPHOTOS/Image93.webp"],
       flyerImage: "showposters/swim2.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 17 }, (_, i) =>
         `/SWIMPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
@@ -449,7 +449,7 @@ export const showData = {
       poster: "/showposters/union2.webp",
       heroImages: ["/UNIONPHOTOS/Image93.webp"],
       flyerImage: "showposters/union2.webp",
-      photos: Array.from({ length: 223 }, (_, i) =>
+      photos: Array.from({ length: 165 }, (_, i) =>
         `/UNIONPHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
       ),
       videos: [
