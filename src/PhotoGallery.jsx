@@ -14,7 +14,7 @@ export default function PhotoGallery() {
       title: show.title || '',
       date: show.date || '',
       location: show.location || '',
-      thumbnail: show.thumbnail || show.heroImages?.[0] || '/fallback.jpg'
+      thumbnail: show.thumbnail || show.heroImages?.[0] || show.flyerImage || '/fallback.jpg'
     }))
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
