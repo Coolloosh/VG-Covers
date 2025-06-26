@@ -494,7 +494,7 @@ export const showData = {
       date: "May 2, 2025",
       location: "Newark, DE",
       poster: "/showposters/DP52.webp",
-      heroImages: ["/DP52PHOTOS/Image93.webp"],
+      heroImages: ["/DP52PHOTOS/Image11.webp"],
       flyerImage: "showposters/DP52.webp",
       photos: Array.from({ length: 12 }, (_, i) =>
         `/DP52PHOTOS/Image${String(i + 1).padStart(2, '0')}.webp`
