@@ -15,7 +15,7 @@ export default function VideoGallery() {
       title: show.title || '',
       date: show.date || '',
       location: show.location || '',
-      thumbnail: show.flyerImage ||  show.heroImages?.[0] || '/fallback.jpg',
+      thumbnail: show.poster ||  show.heroImages?.[0] || '/fallback.jpg',
     }))
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
