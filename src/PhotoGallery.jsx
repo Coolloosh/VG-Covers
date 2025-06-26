@@ -7,16 +7,16 @@ export default function PhotoGallery() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   const photoCollections = Object.entries(showData)
-    .filter(([_, show]) => show.photos && show.photos.length)
-    .filter(([, data]) => data.date)
-    .map(([slug, show]) => ({
-      slug,
-      title: show.title || '',
-      date: show.date || '',
-      location: show.location || '',
-      thumbnail: show.poster || show.heroImages?.[0] ||  '/fallback.jpg'
-    }))
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  .filter(([_, show]) => Array.isArray(show.photos) && show.photos.some(p => typeof p === 'string' && p.trim() !== ''))
+  .filter(([, show]) => show.date)
+  .map(([slug, show]) => ({
+    slug,
+    title: show.title || '',
+    date: show.date || '',
+    location: show.location || '',
+    thumbnail: show.heroImages?.[0] || show.poster || '/fallback.jpg'
+  }))
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 
   return (
