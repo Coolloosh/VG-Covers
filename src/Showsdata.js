@@ -1,5 +1,5 @@
 // showsData.js
-const rawupcomingShows = [
+export const upcomingShows = [
   {
     slug: "Swim-House-5-10",
     date: "May 10, 2025",
@@ -66,7 +66,7 @@ const rawupcomingShows = [
       ticketlink: "mylink"
     }*/
 ];
-
+/*
 const getUpcomingShows = () => {
   const today = new Date();
   return rawupcomingShows.filter((show) => {
@@ -77,3 +77,4 @@ const getUpcomingShows = () => {
 };
 
 export const upcomingShows = getUpcomingShows();
+*/
