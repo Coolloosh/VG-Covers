@@ -26,50 +26,62 @@ export default function UpcomingShowsPage() {
       <div className="min-h-screen px-6 py-12 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-purple-300 mb-10 text-center">All Upcoming Shows</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {upcomingShows.map((show) => (
-            <div
-            key={show.slug}
-            className={`bg-gray-900 rounded-2xl border border-purple-700 shadow-xl overflow-hidden transition ${
-              !isMobile ? 'hover:shadow-purple-600 hover:-translate-y-1' : ''
-            }`}
-          >
-              <Link to={`/shows/${show.slug}`} className="block">
-                <div
-                  className="h-60 bg-cover bg-center"
-                  style={{ backgroundImage: `url(/showposters/${show.thumbnail || show.poster})` }}
-                />
-                <div className="p-4">
-                  <h3 className="text-green-400 text-xl font-bold">{show.date}</h3>
-                  <p className="text-white text-lg font-semibold mt-1">
-                    {show.location}, {show.city}
-                  </p>
-                  <p className="text-sm text-purple-200 mt-2 italic">{show.notes}</p>
-                </div>
-              </Link>
-              {show.ticketLink && !show.soldOut && (
-                <div className="px-4 pb-4">
-                  <a
-                    href={show.ticketLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block text-sm font-semibold text-green-400 hover:underline"
-                  >
-                    Get Tickets →
-                  </a>
-                </div>
-              )}
-              {show.soldOut && (
-                <p className="text-red-500 font-bold px-4 pb-4">SOLD OUT</p>
-              )}
-              {!show.ticketLink && !show.soldOut && (
-    <p className="text-sm font-semibold text-yellow-400 px-4 pb-4">
-      {show.ticketNote || 'Tickets Unavailable'}
-    </p>
-  )}
-            </div>
-          ))}
-        </div>
+
+
+        {upcomingShows.length > 0 ? (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {upcomingShows.map((show) => (
+      <div
+        key={show.slug}
+        className={`bg-gray-900 rounded-2xl border border-purple-700 shadow-xl overflow-hidden transition ${
+          !isMobile ? 'hover:shadow-purple-600 hover:-translate-y-1' : ''
+        }`}
+      >
+        <Link to={`/shows/${show.slug}`} className="block">
+          <div
+            className="h-60 bg-cover bg-center"
+            style={{ backgroundImage: `url(/showposters/${show.thumbnail || show.poster})` }}
+          />
+          <div className="p-4">
+            <h3 className="text-green-400 text-xl font-bold">{show.date}</h3>
+            <p className="text-white text-lg font-semibold mt-1">
+              {show.location}, {show.city}
+            </p>
+            <p className="text-sm text-purple-200 mt-2 italic">{show.notes}</p>
+          </div>
+        </Link>
+
+        {show.ticketLink && !show.soldOut && (
+          <div className="px-4 pb-4">
+            <a
+              href={show.ticketLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm font-semibold text-green-400 hover:underline"
+            >
+              Get Tickets →
+            </a>
+          </div>
+        )}
+
+        {show.soldOut && (
+          <p className="text-red-500 font-bold px-4 pb-4">SOLD OUT</p>
+        )}
+
+        {!show.ticketLink && !show.soldOut && (
+          <p className="text-sm font-semibold text-yellow-400 px-4 pb-4">
+            {show.ticketNote || 'Tickets Unavailable'}
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+) : (
+  <p className="text-center text-purple-300 italic mt-10">
+    No upcoming shows yet — stay tuned!
+  </p>
+)}
+
 
         <div className="text-center mt-16">
           <Link to="/past-shows" className="text-purple-400 font-bold text-lg hover:underline">

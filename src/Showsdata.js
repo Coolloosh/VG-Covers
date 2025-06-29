@@ -70,9 +70,10 @@ const getUpcomingShows = () => {
   const today = new Date();
   const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-  return RawupcomingShows.filter((show) => {
+  return (RawupcomingShows || []).filter((show) => {
+    if (!show?.date) return false;
     const showDate = new Date(show.date);
-    return showDate >= startOfToday;
+    return !isNaN(showDate) && showDate >= startOfToday;
   });
 };
 
