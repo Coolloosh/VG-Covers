@@ -544,7 +544,7 @@ We never learn`
     { id: 'lithium', title: 'Lithium', originalArtist: 'Nirvana',/*shaun*/ },
     { id: 'longview', title: 'Longview', originalArtist: 'Green Day', youtubeId: '6ibyAyEUBaI' },
     { id: 'looks', title: 'Looks That Kill', originalArtist: 'Motley Crue', /*not yet*/ },
-    { id: 'maninthebox', title: 'Man In The Box', originalArtist: 'Alice In Chains',/*find it*/ },
+    { id: 'maninthebox', title: 'Man In The Box', originalArtist: 'Alice In Chains'./*find it*/ },
     { id: 'masterofpuppets', title: 'Master of Puppets', originalArtist: 'Metallica',/*find it*/ },
     { id: 'mississippiqueen', title: 'Mississippi Queen', originalArtist: 'Mountain', /*shaun*/ },
     { id: 'monkeywrench', title: 'Monkey Wrench', originalArtist: 'Foo Fighters', /*shaun*/ },
