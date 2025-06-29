@@ -15,7 +15,7 @@ export default function VideoGallery() {
     title: show.title || '',
     date: show.date || '',
     location: show.location || '',
-    thumbnail: show.poster ?? show.heroImages?.[0] ?? '/fallback.jpg',
+    thumbnail: show.poster ?? show.heroImages?.[0] ?? '/crop.webp',
   }))
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -53,7 +53,7 @@ export default function VideoGallery() {
               src={collection.thumbnail}
               alt={`${collection.title} video`}
               onError={(e) => {
-                const fallback = showData[collection.slug]?.heroImages?.[0] || '/fallback.jpg';
+                const fallback = showData[collection.slug]?.heroImages?.[0] || '/crop.webp';
                 e.target.onerror = null; // Prevent infinite loop
                 e.target.src = fallback;
               }}
