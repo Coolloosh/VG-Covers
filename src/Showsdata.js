@@ -1,5 +1,5 @@
 // showsData.js
-const RawupcomingShows = [
+export const RawupcomingShows = [
   {
     slug: "Swim-House-5-10",
     date: "May 10, 2025",
@@ -66,13 +66,13 @@ const RawupcomingShows = [
       ticketlink: "mylink"
     }*/
 ];
-
 const getUpcomingShows = () => {
   const today = new Date();
+  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
   return RawupcomingShows.filter((show) => {
     const showDate = new Date(show.date);
-    // Keep show if it is today or in the future
-    return showDate >= today.setHours(0, 0, 0, 0);
+    return showDate >= startOfToday;
   });
 };
 
