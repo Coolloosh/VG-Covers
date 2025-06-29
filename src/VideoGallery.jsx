@@ -8,16 +8,16 @@ export default function VideoGallery() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   const videoCollections = Object.entries(showData)
-  .filter(([_, show]) => show && Array.isArray(show.videos) && show.videos.length)
-  .filter(([, show]) => show.date)
-  .map(([slug, show]) => ({
-    slug,
-    title: show.title || '',
-    date: show.date || '',
-    location: show.location || '',
-    thumbnail: show.poster ?? show.heroImages?.[0] ?? '/fallback.jpg',
-  }))
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .filter(([_, show]) => show.videos && show.videos.length)
+    .filter(([, show]) => show.date)
+    .map(([slug, show]) => ({
+      slug,
+      title: show.title || '',
+      date: show.date || '',
+      location: show.location || '',
+      thumbnail: show.poster ||  show.heroImages?.[0] || '/fallback.jpg',
+    }))
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
      <main className="min-h-screen bg-black text-white font-sans">
