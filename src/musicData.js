@@ -487,7 +487,7 @@ We never learn`
   ];
 
   export const coverReleases = [
-    { id: 'aceofspades', title: 'Ace of Spades', originalArtist: 'Motorhead', youtubeId: '' ,/*we did with matty but no footage i believe so taco*/},
+    { id: 'aceofspades', title: 'Ace of Spades', originalArtist: 'Motorhead'/*we did with matty but no footage i believe so taco*/},
     { id: 'allstar', title: 'All Star', originalArtist: 'Smash Mouth' , youtubeId: '0bbTDkS3O-0' /*shaun*/},
     { id: 'smallthings', title: 'All The Small Things', originalArtist: 'Blink-182', youtubeId: 'KPEuBXoTEE4' },
     { id: 'americanidiot', title: 'American Idiot', originalArtist: 'Green Day', youtubeId: 'Mgo6scG9sM' },
@@ -536,7 +536,7 @@ We never learn`
     { id: 'intoodeep', title: 'In Too Deep', originalArtist: 'Sum 41', /*not yet*/ },
     { id: 'iris', title: 'Iris', originalArtist: 'The Goo Goo Dolls', /*i think no footage, from my bday*/ },
     { id: 'jessiesgirl', title: 'Jessie’s Girl', originalArtist: 'Rick Springfield', /*udress*/ },
-    { id: 'jumper', title: 'Jumper', originalArtist: 'Third Eye Blind', youtubeId: Iv-HXz3yDbc  /*shaun casa*/ },
+    { id: 'jumper', title: 'Jumper', originalArtist: 'Third Eye Blind', youtubeId: 'Iv-HXz3yDbc'  /*shaun casa*/ },
     { id: 'justagirl', title: 'Just A Girl', originalArtist: 'No Doubt', /*shaun*/ },
     { id: 'kilbygirl', title: 'Kilby Girl', originalArtist: 'The Backseat Lovers', youtubeId: 'COYbzn778bA' },
     { id: 'killing', title: 'Killing In The Name', originalArtist: 'Rage Against The Machine', youtubeId: '89A3EOpEDBc' },
@@ -548,7 +548,7 @@ We never learn`
     { id: 'looks', title: 'Looks That Kill', originalArtist: 'Motley Crue', /*not yet*/ },
     { id: 'maninthebox', title: 'Man In The Box', originalArtist: 'Alice In Chains',/*find it*/ },
     { id: 'masterofpuppets', title: 'Master of Puppets', originalArtist: 'Metallica',/*find it*/ },
-    { id: 'mississippiqueen', title: 'Mississippi Queen', originalArtist: 'Mountain', youtubeId: ''/*shaun*/ },
+    { id: 'mississippiqueen', title: 'Mississippi Queen', originalArtist: 'Mountain'/*shaun*/ },
     { id: 'monkeywrench', title: 'Monkey Wrench', originalArtist: 'Foo Fighters', /*shaun*/ },
     { id: 'monstermash', title: 'Monster Mash', originalArtist: 'Bobby Pickett', /*shaun*/ },
     { id: 'mrbrightside', title: 'Mr. Brightside', originalArtist: 'The Killers', youtubeId: 'n7u4uDErGx4' },
@@ -587,7 +587,7 @@ We never learn`
     { id: 'sunshine', title: 'Sunshine of Your Love', originalArtist: 'Cream', /*shaun DP*/ },
     { id: 'sweethome', title: 'Sweet Home Alabama', originalArtist: 'Lynyrd Skynyrd', youtubeId: 'HjuaFn2-CC4' },
     { id: 'teenagedirtbag', title: 'Teenage Dirtbag', originalArtist: 'Wheatus', youtubeId: 'NeiwHmvvFtQ' },
-    { id: 'teenagers', title: 'Teenagers', originalArtist: 'My Chemical Romance', youtubeId: '' /* 7Pu7wMvz5Qk shaun DP*/ },
+    { id: 'teenagers', title: 'Teenagers', originalArtist: 'My Chemical Romance' /* 7Pu7wMvz5Qk shaun DP*/ },
     { id: 'anthem', title: 'The Anthem', originalArtist: 'Good Charlotte', youtubeId: 'ryx56JTdsMQ' },
     { id: 'middle', title: 'The Middle', originalArtist: 'Jimmy Eat World', youtubeId: 'hNkd1IjLa1c' },
     { id: 'therockshow', title: 'The Rock Show', originalArtist: 'Blink-182', /*matty cats*/ },
