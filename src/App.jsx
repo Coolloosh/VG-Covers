@@ -111,7 +111,7 @@ export default function App() {
             <Route path="/shows/union" element={<UnionShow />} />
             <Route path="/shows/swim" element={<SwimShow />} />
             <Route path="/shows/rooney-7-12" element={<RooneyShow />} />
-            <Route path="/shows/splits" element={<SplitzShow />} />
+            <Route path="/shows/splitz" element={<SplitzShow />} />
             <Route path="/shows/conch-8-8" element={<ConchShow />} />
             <Route path="/shows/station-7-16" element={<StationShow />} />
             <Route path="/shows/rons-8-23" element={<RonsShow />} />

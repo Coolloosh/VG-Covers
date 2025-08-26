@@ -607,7 +607,7 @@ export const showData = {
     title: "Staion 142",
     date: "July 16, 2025",
     pagetitle: "Live At Station 142 7/16 (update in progress)",
-    location: "West Cchester, PA",
+    location: "West Chester, PA",
     poster: "VGPS3.png",
     heroImages: ["/band2.webp"],
     flyerImage: "VGPS3.png",
