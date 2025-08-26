@@ -41,6 +41,12 @@ import ShowDetail from './ShowDetail';
 import ScrollToTop from './ScrollToTop';
 import CoverRelease from "./CoverRelease.jsx";
 import InPersonCheckout from "./InPersonCheckout.jsx";
+import RooneyShow from "./shows/rooney-7-12.jsx";
+import SplitzShow from "./shows/splitz.jsx";
+import ConchShow from "./shows/conch-8-8.jsx";
+import StationShow from "./shows/station-7-16.jsx";
+import RonsShow from "./shows/rons-8-23.jsx";
+import BayardShow from "./shows/bayard-7-25.jsx";
 import { Cat } from "lucide-react";
 
 
@@ -104,6 +110,13 @@ export default function App() {
             <Route path="/shows/udress" element={<UdressShow />} />
             <Route path="/shows/union" element={<UnionShow />} />
             <Route path="/shows/swim" element={<SwimShow />} />
+            <Route path="/shows/rooney-7-12" element={<RooneyShow />} />
+            <Route path="/shows/splits" element={<SplitzShow />} />
+            <Route path="/shows/conch-8-8" element={<ConchShow />} />
+            <Route path="/shows/station-7-16" element={<StationShow />} />
+            <Route path="/shows/rons-8-23" element={<RonsShow />} />
+            <Route path="/shows/bayard-7-25" element={<BayardShow />} />
+
           
 
 
