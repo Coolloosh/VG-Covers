@@ -90,7 +90,7 @@ export default function BookingPage() {
           {showViewer && (
             <div className="w-full aspect-[4/3] border border-purple-700 rounded-lg overflow-hidden mb-4">
               <iframe
-                src="/VGEPK.pdf"
+                src="/VGCEPK.pdf"
                 className="w-full h-full"
                 frameBorder="0"
                 title="EPK"
@@ -99,7 +99,7 @@ export default function BookingPage() {
           )}
 
 <a
-  href="/VGEPK.pdf"
+  href="/VGCEPK.pdf"
   download
   className={`inline-block bg-green-500 text-black font-bold px-6 py-3 rounded-full shadow-md mt-4 transition ${
     !isMobile ? 'hover:bg-green-400' : ''
