@@ -16,7 +16,7 @@ export default function ContactPage() {
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://formspree.io/f/mkgjylvv', {
+      const response = await fetch('https://formspree.io/f/xrbonlqd', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -92,7 +92,7 @@ export default function ContactPage() {
           For booking, press, or fan messages, drop us a line:
         </p>
         <p className="text-green-400 text-center mb-10">
-          Email: <a href="mailto:bookvgcovers@gmail.com" className="hover:underline">bookvgcovers@gmail.com</a>
+          Email: <a className="hover:underline">bookvgcovers@gmail.com</a>
         </p>
 
         <div className="max-w-2xl mx-auto text-center">
