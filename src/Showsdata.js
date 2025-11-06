@@ -16,6 +16,20 @@ export const upcomingShows = [
     private: false,
   },
   {
+    slug: "test-house-may-10-2025",
+    date: "November 28, 2025",              // Display text (for quick editing)
+    isoDate: "2025-11-28",            // Machine-readable format for sorting
+    location: "Test House",
+    city: "Newark, DE",
+    address: "49 Prospect Ave",
+    time: "3–5 PM",
+    notes: "$5 tickets at door",
+    ticketLink: "",                   // optional: external link to Eventbrite, etc.
+    soldOut: false,
+    free: false,
+    private: false,
+  },
+  {
     slug: "union-firehouse-may-10-2025",
     date: "May 10, 2025",
     isoDate: "2025-05-10",
