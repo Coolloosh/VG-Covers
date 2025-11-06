@@ -5,7 +5,7 @@ import PageHero from './PageHero';
 import { coverReleases } from './musicData.js';
 
 
-
+//all killer no filller
 export default function MusicCatalog() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
@@ -14,7 +14,7 @@ export default function MusicCatalog() {
          <PageHero
   image="/booking1.webp"
   title="Music"
-  subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Hear ye hear ye...</span>}
+  subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Every Song. Every Crowd. Every Vibe.</span>}
   gradientClass="bg-gradient-to-b from-transparent via-black/10 to-black"
   imageClass="object-[75%_bottom] sm:object-bottom brightness-50 scale-85 transition duration-[2000ms]"
   titleColor="purple"
@@ -35,7 +35,7 @@ export default function MusicCatalog() {
     <div className="min-h-screen bg-black text-white py-12 px-6">
     
       
-{/* Cover Songs Section */}
+{/* Cover Songs Section all killer no filler*/}
 <section className="mt-24 max-w-6xl mx-auto px-4 sm:px-6">
   <h2 className="text-3xl text-purple-400 font-bold text-center mb-8">Cover Songs</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

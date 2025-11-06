@@ -29,7 +29,7 @@
           <h1 className="text-5xl md:text-6xl font-extrabold text-purple-200 drop-shadow-[0_0_40px_rgba(192,132,252,0.6)] mb-4 uppercase tracking-wide">
             ABOUT US
           </h1>
-          <p className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] opacity-90">shh...</p>
+          <p className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] opacity-90">Pop, Punk, Alt & Rock Anthems Fit For Any Occasion</p>
         </div>
                     </section>
               
@@ -40,20 +40,20 @@
                           Tales Of the Beast
                         </h2>
                         <p className="text-lg text-purple-200 mb-4 leading-relaxed">
-                        Vanylla Godzylla is THE rock band from University of Delaware. Formed in the stomach of Main Street (El Diablo) and refined in the heart (Deer Park Tavern), we've cut our teeth playing sweaty, chaotic basement shows and raucous backyard parties, where the ceiling would sweat almost as much as the crowd. Now, we're working to earn a reputation as one of the hardest-hitting bands to come out of the region.
+                        Vanylla Godzylla is the premier party rock band born out of the University of Delaware. Formed in the stomach of Main Street (El Diablo) and refined in its heart (Deer Park Tavern), we built our sound in sweaty basements and backyard blowouts where the walls shook and the crowd sang every word. Today, we bring that same electric energy to bars, weddings, and events across the East Coast — playing Pop, Punk, Alt, and Rock anthems fit for any occasion.
 
                         </p>
-                        <p className="text-lg text-purple-200 leading-relaxed">
-                          Our story is packed with wild gigs, weird stories, and moments that shaped us. Below is a glimpse into our journey.
-                        </p>
+                       
                       </section>
               
-                      <section className="max-w-6xl mx-auto">
-                        <h3 className="text-3xl md:text-4xl font-semibold text-green-400 mb-8 text-center drop-shadow">
-                          Band Timeline
-                        </h3>
-                        <Timeline />
-                      </section>
+                     <section className="text-center py-16">
+                      <a
+                        href="/booking"
+                        className="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-8 py-4 rounded-full shadow-md transition hover:scale-105"
+                      >
+                        Book the Band →
+                      </a>
+                    </section>
                     </div>
               
                     <footer className="bg-black py-6 text-center text-sm text-gray-500">
