@@ -59,7 +59,7 @@ export default function ContactPage() {
         <PageHero
         image="/contact3.webp"
         title="Contact Us"
-        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">whisper into the chaos...</span>}
+        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Your next great night starts here.</span>}
       /* subtitle={<span className="text-green-400 text-xl md:text-2xl italic tracking-wide opacity-80">Whisper into the chaos...</span>}*/
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
         imageClass="object-top brightness-50 scale-105 transition duration-[2000ms]"
@@ -92,13 +92,13 @@ export default function ContactPage() {
           For booking, press, or fan messages, drop us a line:
         </p>
         <p className="text-green-400 text-center mb-10">
-          Email: <a href="mailto:vanyllagodzylla@gmail.com" className="hover:underline">vanyllagodzylla@gmail.com</a>
+          Email: <a href="mailto:bookvgcovers@gmail.com" className="hover:underline">bookvgcovers@gmail.com</a>
         </p>
 
         <div className="max-w-2xl mx-auto text-center">
           {formSubmitted && (
             <p className={`text-green-400 font-semibold mb-6 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
-              Thanks! Your message has been sent.
+              Thanks! We'll get back to you within a day or two.
             </p>
           )}
 

@@ -33,8 +33,8 @@
         </div>
                     </section>
               
-                    {/* Main content pushed slightly lower */}
-                    <div className="mt-[200px] relative z-10 px-6 pt-20 pb-24">
+                    {/* Main content pushed slightly lower change this to 100 from 200*/}
+                    <div className="mt-[100px] relative z-10 px-6 pt-20 pb-24">
                     <section className="max-w-4xl mx-auto mb-20">
                         <h2 className="text-4xl md:text-5xl font-bold text-purple-400 mb-6 text-center drop-shadow">
                           Tales Of the Beast
@@ -51,7 +51,7 @@
                         href="/booking"
                         className="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-8 py-4 rounded-full shadow-md transition hover:scale-105"
                       >
-                        Book the Band →
+                        Book the Band
                       </a>
                     </section>
                     </div>
