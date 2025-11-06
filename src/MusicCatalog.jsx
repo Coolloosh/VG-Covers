@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from './PageHero';
-import { originalReleases, coverReleases } from './musicData.js';
+import { coverReleases } from './musicData.js';
 
 
 
@@ -34,34 +34,7 @@ export default function MusicCatalog() {
                     />*/}
     <div className="min-h-screen bg-black text-white py-12 px-6">
     
-      <h1 className="text-4xl font-bold text-purple-400 mb-12 text-center">Music Catalog</h1>
-     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-  {originalReleases.map((release) => (
-    <Link
-    key={release.id}
-    to={`/music/${release.id}`}
-    className={`group relative block bg-black border border-purple-800 2xl overflow-hidden shadow-xl transform transition-transform duration-300 ${
-      !isMobile ? 'hover:shadow-purple-600 hover:scale-105' : ''
-    }`}
-  >
-    <div className="relative w-full h-72">
-    <img
-  src={release.cover}
-  alt={release.title}
-  className={`w-full h-full object-cover transition-transform duration-500 ${
-    !isMobile ? 'group-hover:scale-110' : ''
-  }`}
-/>
-      {/* Overlay label */}
-      <div className="absolute bottom-0 w-full bg-black/60 py-3 px-4 backdrop-blur-sm text-center">
-        <h2 className="text-green-400 font-extrabold text-lg tracking-wide drop-shadow-[0_0_10px_rgba(0,255,0,0.3)]">
-          {release.title}
-        </h2>
-      </div>
-    </div>
-  </Link>
-  ))}
-</div>
+      
 {/* Cover Songs Section */}
 <section className="mt-24 max-w-6xl mx-auto px-4 sm:px-6">
   <h2 className="text-3xl text-purple-400 font-bold text-center mb-8">Cover Songs</h2>
