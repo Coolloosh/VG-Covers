@@ -1,67 +1,94 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from './PageHero';
-import { showData } from './videoData';
-
-// Sort pastShows by descending date
-const pastShows = Object.entries(showData)
-  .filter(([, data]) => data.date)
-  .map(([slug, data]) => ({
-    slug,
-    date: data.date,
-    location: data.location,
-    venue: data.title,
-    notes: 'Click to view photos & videos',
-    poster: data.poster,
-  }))
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+import { shows } from './Showsdata';
 
 export default function PastShowsPage() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  const { groupedByYear } = useMemo(() => {
+    const today = new Date();
+    const past = shows
+      .map(s => ({ ...s, _d: new Date(s.isoDate || s.date) }))
+      .filter(s => !isNaN(s._d) && s._d < new Date(today.getFullYear(), today.getMonth(), today.getDate()))
+      .sort((a, b) => b._d - a._d);
+
+    const grouped = past.reduce((acc, s) => {
+      const y = String(s._d.getFullYear());
+      (acc[y] ||= []).push(s);
+      return acc;
+    }, {});
+    return { groupedByYear: grouped };
+  }, []);
+
   return (
     <main className="min-h-screen bg-black text-white font-sans">
       <PageHero
         image="/pastshows.webp"
         title="Past Shows"
-        subtitle={
-          <span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">
-            where we've been...
-          </span>
-        }
+        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">where we&apos;ve been...</span>}
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
         titleColor="purple"
         titleFont="font-sans font-extrabold tracking-normal"
       />
 
-      <div className="min-h-screen bg-black text-white px-6 py-12 max-w-7xl mx-auto font-sans">
-        <h1 className="text-5xl font-extrabold text-purple-300 mb-14 text-center drop-shadow-[0_0_15px_rgba(192,132,252,0.3)]">
-          Shows Archive
-        </h1>
+      <div className="min-h-screen px-6 py-12 max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-purple-300 mb-8 text-center">Shows Archive</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {pastShows.map((show) => (
-            <Link
-              key={show.slug}
-              to={`/shows/${show.slug}`}
-              className={`bg-gray-900 rounded-2xl border border-purple-700 shadow-xl overflow-hidden group transition ${
-                !isMobile ? 'hover:shadow-purple-600 hover:-translate-y-1' : ''
-              }`}
-            >
-              <img
-                src={show.poster}
-                alt={`${show.venue} flyer`}
-                className={`w-full h-64 object-cover transition-transform duration-300 ${
-                  !isMobile ? 'group-hover:scale-105' : ''
-                }`}
-              />
-              <div className="p-5">
-                <h3 className="text-green-400 text-xl font-bold mb-1">{show.date}</h3>
-                <p className="text-white text-lg font-semibold">
-                  {show.venue + " - " + show.location}
-                </p>
-                <p className="text-sm text-purple-300 mt-2 italic">{show.notes}</p>
-              </div>
-            </Link>
+        {Object.keys(groupedByYear).length === 0 && (
+          <p className="text-center text-purple-200">No archive yet — more to come.</p>
+        )}
+
+        <div className="space-y-10">
+          {Object.entries(groupedByYear).map(([year, items]) => (
+            <section key={year}>
+              <h2 className="text-xl font-semibold text-green-400 mb-4">{year}</h2>
+              <ul className="divide-y divide-purple-900/40 rounded-xl border border-purple-800/40 overflow-hidden bg-gradient-to-b from-black/40 to-zinc-950/40">
+                {items.map(s => {
+                  const dateLabel = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(s._d);
+                  const hasMedia = !!s.gallerySlug;
+                  return (
+                    <li key={s.slug} className="p-4 sm:p-5 hover:bg-zinc-900/40 transition">
+                      <div className="flex items-start gap-3">
+                        {/* optional tiny thumb if poster exists */}
+                        {s.poster && (
+                          <img
+                            src={s.poster}
+                            alt=""
+                            className="hidden sm:block w-14 h-14 rounded-md object-cover border border-purple-800/50"
+                          />
+                        )}
+
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-green-400 font-bold w-16">{dateLabel}</span>
+                            <p className="text-white font-semibold truncate">
+                              {s.location}{s.city ? `, ${s.city}` : ''}
+                            </p>
+                            {hasMedia && (
+                              <span className="ml-auto inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border bg-zinc-800 text-zinc-200 border-zinc-700">
+                                Photos/Video
+                              </span>
+                            )}
+                          </div>
+                          {s.time && <p className="text-sm text-purple-300">{s.time}</p>}
+                          {s.notes && <p className="text-sm text-purple-300">{s.notes}</p>}
+
+                          {hasMedia ? (
+                            <Link
+                              to={`/shows/${s.slug}`}
+                              className="inline-block mt-2 text-sm font-semibold text-purple-300 hover:text-purple-200 underline"
+                            >
+                              View recap →
+                            </Link>
+                          ) : null}
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
           ))}
         </div>
       </div>
@@ -70,15 +97,9 @@ export default function PastShowsPage() {
         <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
         <p>
           Follow us:
-          <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400 ml-1">
-            Instagram
-          </a>{' '}•
-          <a href="#" className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}>
-            Facebook
-          </a>{' '}•
-          <a href="https://www.youtube.com/@vanyllagodzylla1282" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>
-            YouTube
-          </a>
+          <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400 ml-1">Instagram</a> •
+          <a href="#" className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}>Facebook</a> •
+          <a href="https://www.youtube.com/@vanyllagodzylla1282" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>YouTube</a>
         </p>
       </footer>
     </main>
