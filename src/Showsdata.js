@@ -1,5 +1,20 @@
 // src/Showsdata.js
-
+export const shows = [{
+  slug: "swim-house-may-10-2025",
+  date: "May 10, 2025",
+  isoDate: "2025-05-10",
+  location: "Swim House",
+  city: "Newark, DE",
+  time: "3–5 PM",
+  notes: "$5 tickets at door",
+  ticketLink: "",
+  free: false,
+  private: false,
+  soldOut: false,
+  // optional for past-show media:
+  poster: "/showposters/swimhouse.jpg",
+  gallerySlug: "swim-house-2025-05-10", // if you have a media page
+},];
 export const upcomingShows = [
   {
     slug: "swim-house-may-10-2025",
