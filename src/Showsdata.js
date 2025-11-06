@@ -1,83 +1,70 @@
-// showsData.js
+// src/Showsdata.js
+
 export const upcomingShows = [
   {
-    slug: "Swim-House-5-10",
-    date: "May 10, 2025",
+    slug: "swim-house-may-10-2025",
+    date: "May 10, 2025",              // Display text (for quick editing)
+    isoDate: "2025-05-10",            // Machine-readable format for sorting
     location: "Swim House",
     city: "Newark, DE",
-    notes: "3-5pm, 49 Prospect Ave",
-    poster: "swim.webp",
-    ticketNote: "$5 tickets at door"
+    address: "49 Prospect Ave",
+    time: "3–5 PM",
+    notes: "$5 tickets at door",
+    ticketLink: "",                   // optional: external link to Eventbrite, etc.
+    soldOut: false,
+    free: false,
+    private: false,
   },
   {
-    slug: "Union-Fire-House",
+    slug: "union-firehouse-may-10-2025",
     date: "May 10, 2025",
+    isoDate: "2025-05-10",
     location: "Union Firehouse",
     city: "Mount Holly, NJ",
-    notes: "9PM Set Time, 18 Washington St",
-    poster: "union.webp",
-    ticketNote: "$15 tickets at door"
+    address: "18 Washington St",
+    time: "9 PM set time",
+    notes: "$15 tickets at door",
+    ticketLink: "",
+    soldOut: false,
+    free: false,
+    private: false,
   },
   {
-    slug: "dp-5-14",
+    slug: "deer-park-botb-may-14-2025",
     date: "May 14, 2025",
-    location: "Deer Park BOTB",
+    isoDate: "2025-05-14",
+    location: "Deer Park Tavern — Battle of the Bands",
     city: "Newark, DE",
-    notes: "21+",
-    poster: "dpbotb.webp",
-    ticketNote: "Free Entry"
-    /*soldOut: true*/
+    time: "11:20 PM – 1 AM",
+    notes: "21+ • Free Entry",
+    ticketLink: "",
+    soldOut: false,
+    free: true,
+    private: false,
   },
   {
-    slug: "Swim-House-5-10",
-    date: "June 27, 2025",
-    location: "Letty's",
-    city: "Newark, DE",
-    notes: "3-5pm, 49 Prospect Ave",
-    poster: "swim.webp",
-    ticketNote: "$5 tickets at door"
+    slug: "private-event-june-7-2025",
+    date: "June 7, 2025",
+    isoDate: "2025-06-07",
+    location: "Private Event",
+    city: "Rehoboth, DE",
+    time: "Evening",
+    notes: "Private booking",
+    soldOut: false,
+    free: false,
+    private: true,
   },
-  /*
   {
-    slug: "deer-park-2-23",
-    date: "February 23, 2025",
-    location: "Deer Park Tavern",
-    city: "Newark, DE",
-    notes: "Special Show",
-    poster: "VGFlyerTest2.png",
-    thumbnail: "/VGFlyerTest.png"
+    slug: "conch-island-june-21-2025",
+    date: "June 21, 2025",
+    isoDate: "2025-06-21",
+    location: "Conch Island",
+    city: "Rehoboth Beach, DE",
+    time: "9 PM – 12 AM",
+    notes: "Free Entry",
+    ticketLink: "",
+    soldOut: false,
+    free: true,
+    private: false,
   },
-    {
-      slug: "deer-park-2-25",
-      date: "April 26, 2025",
-      location: "Conch Island",
-      city: "Rehoboth, DE",
-      notes: "Free Entry",
-      poster: "VGPS2.png",
-      soldOut: true
-    },
-    {
-      slug: "deer-park-2-26",
-      date: "February 23, 2025",
-      location: "Deer Park Tavern",
-      city: "Newark, DE",
-      notes: "Special Show",
-      poster: "VGPS3.png",
-      ticketlink: "mylink"
-    }*/
 ];
-
-/*
-const getUpcomingShows = () => {
-  const today = new Date();
-  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
-  return (RawupcomingShows || []).filter((show) => {
-    if (!show?.date) return false;
-    const showDate = new Date(show.date);
-    return !isNaN(showDate) && showDate >= startOfToday;
-  });
-};
-
-export const upcomingShows = getUpcomingShows();
-*/
