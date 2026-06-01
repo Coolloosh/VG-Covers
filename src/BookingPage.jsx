@@ -3,7 +3,14 @@ import PageHero from './PageHero';
 
 export default function BookingPage() {
   const [showViewer, setShowViewer] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    venueName: '',
+    eventDate: '',
+    location: '',
+    message: '',
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -60,8 +67,8 @@ export default function BookingPage() {
        <main className="min-h-screen bg-black text-white font-sans">
                 <PageHero
                               image="/booking3.webp"
-                              title="Booking & EPK"
-                              subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Supercharge your sales...</span>}
+                              title="Booking"
+                              subtitle={<span className="text-purple-400 text-xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Delaware's Hottest Rock Band</span>}
                             /* subtitle={<span className="text-green-400 text-xl md:text-2xl italic tracking-wide opacity-80">Whisper into the chaos...</span>}*/
                               gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
                               titleColor="purple"
@@ -75,16 +82,18 @@ export default function BookingPage() {
       <div className="max-w-4xl mx-auto">
         <div className="relative z-10 text-center px-6"></div>
 
+     
+
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-green-400 mb-4">Press Kit</h2>
-          <p className="mb-4 text-purple-200">Need our bio, photos, press quotes, or tech info?</p>
+          <h2 className="text-2xl font-semibold text-green-400 mb-4">EPK</h2>
+          <p className="mb-4 text-purple-200">Need our bio, photos, live video, repertoire, or tech info? View the EPK here, then send the details for your date below.</p>
           <button
   onClick={() => setShowViewer(!showViewer)}
   className={`inline-block bg-purple-600 text-white font-bold px-6 py-3 rounded-full shadow-md mb-4 mr-4 transition ${
     !isMobile ? 'hover:bg-purple-500' : ''
   }`}
 >
-  {showViewer ? 'Hide EPK' : 'View Our EPK'}
+  {showViewer ? 'Hide EPK' : 'View EPK'}
 </button>
 
           {showViewer && (
@@ -110,7 +119,10 @@ export default function BookingPage() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-green-400 mb-4">Contact Us for Booking</h2>
+          <h2 className="text-2xl font-semibold text-green-400 mb-4">Send Booking Details</h2>
+          <p className="mb-6 text-purple-200">
+            Tell us about the room, date, and timing. We will follow up with availability and next steps.
+          </p>
           {formSubmitted && (
             <p className={`text-green-400 font-semibold mt-6 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
               Thanks! Your message has been sent.
@@ -145,11 +157,20 @@ export default function BookingPage() {
                 required
                 className="w-full p-3 rounded-md text-black"
               />
+             
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                placeholder="Location"
+                className="w-full p-3 rounded-md text-black"
+              />
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message"
+                placeholder="Message / set time / buyer notes"
                 rows="4"
                 required
                 className="w-full p-3 rounded-md text-black"
@@ -160,7 +181,7 @@ export default function BookingPage() {
     !isMobile ? 'hover:bg-purple-500' : ''
   }`}
 >
-  Send Message
+  Send Booking Inquiry
 </button>
             </form>
           )}

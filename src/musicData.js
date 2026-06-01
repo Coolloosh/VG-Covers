@@ -506,6 +506,7 @@ const makeCover = (
   title,
   originalArtist,
   categories,
+  youtubeId: options.youtubeId || null,
   currentRotation: options.currentRotation ?? true,
   availableOnRequest: options.availableOnRequest ?? false,
 });
@@ -520,8 +521,8 @@ export const coverCategories = [
   },
   {
     id: 'crowd-killers',
-    label: 'Crowd Killers',
-    heading: 'Crowd Killers & Singalongs',
+    label: 'Crowd Favorites',
+    heading: 'Crowd Favorites & Singalongs',
     description:
       'Big hooks, loud choruses, and the songs that get the whole room involved.',
   },
@@ -587,137 +588,59 @@ export const coverReleases = [
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Absolutely (Story of a Girl)', 'Nine Days', ['party-starters', '2000s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Ace of Spades', 'Motorhead', ['classic-rock', 'heavy']),
-  makeCover('Addicted', 'Simple Plan', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Aerials', 'System Of A Down', ['heavy'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover("Ain't No Rest for the Wicked", 'Cage the Elephant', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("Ain't Talkin' 'Bout Love", 'Van Halen', ['classic-rock', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Alive', 'Pearl Jam', ['90s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('All Downhill From Here', 'New Found Glory', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('All Star', 'Smash Mouth', ['crowd-killers', 'party-starters']),
   makeCover('All The Small Things', 'Blink-182', ['crowd-killers', 'emo-pop-punk']),
-  makeCover("All These Things That I've Done", 'The Killers', ['modern-hits', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Always', 'Blink-182', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('American Girl', 'Tom Petty', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
+
   makeCover('American Idiot', 'Green Day', ['crowd-killers', '2000s-alt', 'emo-pop-punk']),
-  makeCover('Anna Sun', 'Walk the Moon', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Anthem Part Two', 'Blink-182', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Any Way You Want It', 'Journey', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
+
+ 
   makeCover('Are You Gonna Be My Girl', 'Jet', ['2000s-alt', 'modern-hits']),
   makeCover('Bad Reputation', 'Joan Jett', ['classic-rock', 'party-starters']),
   makeCover('Basket Case', 'Green Day', ['2000s-alt', 'emo-pop-punk', 'crowd-killers']),
-  makeCover('Bat Country', 'Avenged Sevenfold', ['heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Beautiful Disaster', '311', ['2000s-alt']),
-  makeCover('Better Man', 'Pearl Jam', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Beverly Hills', 'Weezer', ['2000s-alt', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Big Me', 'Foo Fighters', ['90s-alt']),
   makeCover('Black', 'Pearl Jam', ['90s-alt']),
   makeCover('Black Diamond', 'Kiss', ['classic-rock']),
-  makeCover('Blister in the Sun', 'Violent Femmes', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Bodies', 'Drowning Pool', ['heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Boulevard of Broken Dreams', 'Green Day', ['2000s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
+ 
   makeCover('Bound for the Floor', 'Local H', ['90s-alt'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Brain Stew', 'Green Day', ['2000s-alt', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Breaking The Law', 'Judas Priest', ['classic-rock', 'heavy']),
   makeCover('Breed', 'Nirvana', ['90s-alt', 'heavy']),
-  makeCover('Brown Eyed Girl', 'Van Morrison', ['party-starters', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Buddy Holly', 'Weezer', ['2000s-alt', 'party-starters']),
   makeCover('Bullet With Butterfly Wings', 'The Smashing Pumpkins', ['90s-alt', 'heavy']),
   makeCover('Bulls On Parade', 'Rage Against The Machine', ['90s-alt', 'heavy']),
-  makeCover('Carry On Wayward Son', 'Kansas', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Chelsea Dagger', 'The Fratellis', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
+
   makeCover('Check Yes Juliet', 'We The Kings', ['emo-pop-punk', 'party-starters'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Champagne Supernova', 'Oasis', ['90s-alt', 'modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Chop Suey', 'System Of A Down', ['heavy']),
   makeCover('Cigarette Daydreams', 'Cage the Elephant', ['modern-hits']),
-  makeCover('Come a Little Closer', 'Cage the Elephant', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Come As You Are', 'Nirvana', ['90s-alt', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Crazy Little Thing Called Love', 'Queen', ['classic-rock', 'party-starters'], {
+  makeCover('Crazy Train', 'Ozzy Osbourne', ['classic-rock', 'party-starters', 'heavy'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
@@ -733,55 +656,27 @@ export const coverReleases = [
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Dancing in the Dark', 'Bruce Springsteen', ['party-starters', 'classic-rock'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Daughter', 'Pearl Jam', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
+
   makeCover('Dear Maria, Count Me In', 'All Time Low', ['emo-pop-punk', 'crowd-killers']),
-  makeCover('Decode', 'Paramore', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Dirty Little Secret', 'The All-American Rejects', ['2000s-alt', 'crowd-killers']),
   makeCover('Do I Wanna Know?', 'Arctic Monkeys', ['modern-hits'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover("Don't Stop Believin'", 'Journey', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Dream On', 'Aerosmith', ['classic-rock'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Duality', 'Slipknot', ['heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
+
   makeCover('Dumpweed', 'Blink-182', ['emo-pop-punk']),
-  makeCover('Electric Feel', 'MGMT', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Enter Sandman', 'Metallica', ['classic-rock', 'heavy']),
   makeCover('Even Flow', 'Pearl Jam', ['90s-alt']),
   makeCover('Everlong', 'Foo Fighters', ['90s-alt', 'crowd-killers']),
   makeCover('Everybody Talks', 'Neon Trees', ['modern-hits', 'party-starters']),
   makeCover('Face Down', 'The Red Jumpsuit Apparatus', ['emo-pop-punk', '2000s-alt']),
-  makeCover('Far Behind', 'Candlebox', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Fat Lip', 'Sum 41', ['emo-pop-punk', 'crowd-killers']),
-  makeCover('Feel It Still', 'Portugal. The Man', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Fell In Love With A Girl', 'The White Stripes', ['modern-hits', 'party-starters']),
   makeCover('First Date', 'Blink-182', ['emo-pop-punk', 'crowd-killers'], {
     currentRotation: false,
@@ -789,129 +684,54 @@ export const coverReleases = [
   }),
   makeCover('Fight For Your Right', 'Beastie Boys', ['party-starters', 'classic-rock']),
   makeCover('Flagpole Sitta', 'Harvey Danger', ['90s-alt']),
-  makeCover('Flavor of the Weak', 'American Hi-Fi', ['2000s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Fluorescent Adolescent', 'Arctic Monkeys', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('For Whom The Bell Tolls', 'Metallica', ['classic-rock', 'heavy']),
   makeCover('Found A Way', 'Drake Bell', ['party-starters']),
-  makeCover('Freak on a Leash', 'Korn', ['heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Free Bird', 'Lynyrd Skynyrd', ['classic-rock']),
-  makeCover('Free Fallin’', 'Tom Petty', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Girl All the Bad Guys Want', 'Bowling For Soup', ['emo-pop-punk', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+   makeCover('Get Lucky', 'Daft Punk', ['2000s-alt', 'crowd-killers']),
+
   makeCover('Gives You Hell', 'The All-American Rejects', ['2000s-alt', 'crowd-killers']),
   makeCover('Godzilla', 'Blue Oyster Cult', ['classic-rock']),
-  makeCover('Good', 'Better Than Ezra', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Good Times Bad Times', 'Led Zeppelin', ['classic-rock']),
   makeCover('Gouge Away', 'Pixies', ['90s-alt']),
-  makeCover('Grand Theft Autumn / Where Is Your Boy', 'Fall Out Boy', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Hard to Beat', 'Hard-Fi', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Hash Pipe', 'Weezer', ['90s-alt', 'party-starters'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover("Heart-Shaped Box", 'Nirvana', ['90s-alt', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("Helena", 'My Chemical Romance', ['emo-pop-punk', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Hey There Delilah', "Plain White T's", ['party-starters', 'crowd-killers']),
   makeCover('Hey Ya!', 'Outkast', ['party-starters', 'crowd-killers']),
   makeCover('Higher', 'Creed', ['90s-alt']),
-  makeCover('High and Dry', 'Radiohead', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Highway to Hell', 'AC/DC', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Hit or Miss', 'New Found Glory', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Ho Hey', 'The Lumineers', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
+ 
   makeCover('Hot For Teacher', 'Van Halen', ['classic-rock', 'heavy']),
-  makeCover("How's It Going to Be", 'Third Eye Blind', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("I'd Do Anything", 'Simple Plan', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("I'm Not Okay (I Promise)", 'My Chemical Romance', ['emo-pop-punk', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('I Love Rock ‘n Roll', 'Joan Jett & The Blackhearts', ['classic-rock', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
+
+
   makeCover('Immigrant Song', 'Led Zeppelin', ['classic-rock']),
   makeCover('In Too Deep', 'Sum 41', ['emo-pop-punk', 'crowd-killers']),
   makeCover('Interstate Love Song', 'Stone Temple Pilots', ['90s-alt']),
-  makeCover('Iron Man', 'Black Sabbath', ['classic-rock', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Iris', 'Goo Goo Dolls', ['90s-alt', 'crowd-killers']),
-  makeCover("I Want You to Want Me", 'Cheap Trick', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('I Write Sins Not Tragedies', 'Panic! At The Disco', ['emo-pop-punk', 'crowd-killers']),
-  makeCover('Jack & Diane', 'John Mellencamp', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Jamie All Over', 'Mayday Parade', ['emo-pop-punk'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover("Jessie's Girl", 'Rick Springfield', ['party-starters', 'crowd-killers']),
-  makeCover('Jump', 'Van Halen', ['classic-rock', 'party-starters'], {
+  makeCover('Jersey', 'Mayday Parade', ['emo-pop-punk'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
+  makeCover("Jessie's Girl", 'Rick Springfield', ['party-starters', 'crowd-killers']),
+
   makeCover('Jumper', 'Third Eye Blind', ['90s-alt']),
   makeCover('Just A Girl', 'No Doubt', ['2000s-alt', 'party-starters']),
-  makeCover('Kashmir', 'Led Zeppelin', ['classic-rock'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Kids', 'MGMT', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Kilby Girl', 'The Backseat Lovers', ['modern-hits']),
   makeCover('Killing In The Name', 'Rage Against The Machine', ['heavy']),
   makeCover('Kiwi', 'Harry Styles', ['modern-hits', 'party-starters']),
@@ -926,37 +746,17 @@ export const coverReleases = [
     availableOnRequest: true,
   }),
   makeCover('Lithium', 'Nirvana', ['90s-alt']),
-  makeCover('Little Talks', 'Of Monsters and Men', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Longview', 'Green Day', ['2000s-alt', 'emo-pop-punk']),
   makeCover('Looks That Kill', 'Motley Crue', ['classic-rock']),
-  makeCover("Love Story", 'Taylor Swift', ['party-starters', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("Lying Is the Most Fun a Girl Can Have Without Taking Her Clothes Off", 'Panic! At The Disco', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Machinehead', 'Bush', ['90s-alt', 'heavy'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('MakeDamnSure', 'Taking Back Sunday', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Man In The Box', 'Alice In Chains', ['90s-alt', 'heavy']),
-  makeCover('Mardy Bum', 'Arctic Monkeys', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover("Mary Jane's Last Dance", 'Tom Petty', ['90s-alt', 'classic-rock'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Master of Puppets', 'Metallica', ['classic-rock', 'heavy']),
   makeCover('Misery Business', 'Paramore', ['emo-pop-punk', 'crowd-killers'], {
     currentRotation: false,
@@ -970,145 +770,75 @@ export const coverReleases = [
     availableOnRequest: true,
   }),
   makeCover('Mr. Brightside', 'The Killers', ['crowd-killers', 'modern-hits']),
-  makeCover('Mr. Jones', 'Counting Crows', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Ms. Jackson', 'Outkast', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('My Friends Over You', 'New Found Glory', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('My Own Summer (Shove It)', 'Deftones', ['heavy'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
   makeCover('My Own Worst Enemy', 'Lit', ['2000s-alt', 'crowd-killers']),
-  makeCover('Naive', 'The Kooks', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Name', 'Goo Goo Dolls', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('New Perspective', 'Panic! At The Disco', ['emo-pop-punk', 'party-starters']),
   makeCover('No One Knows', 'Queens Of The Stone Age', ['modern-hits', 'heavy']),
-  makeCover('No Rain', 'Blind Melon', ['90s-alt', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Ocean Avenue', 'Yellowcard', ['emo-pop-punk', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
   makeCover('One Last Breath', 'Creed', ['90s-alt']),
-  makeCover('Panama', 'Van Halen', ['classic-rock'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Paranoid', 'Black Sabbath', ['classic-rock', 'heavy']),
   makeCover('Party In The U.S.A.', 'Miley Cyrus', ['party-starters', 'crowd-killers']),
-  makeCover('Perfect', 'Simple Plan', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Pet Sematary', 'Ramones', ['classic-rock', 'emo-pop-punk']),
   makeCover('Phineas and Ferb Theme', 'Bowling For Soup', ['party-starters']),
-  makeCover('Photograph', 'Def Leppard', ['classic-rock', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Plush', 'Stone Temple Pilots', ['90s-alt']),
-  makeCover('Possum Kingdom', 'Toadies', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Pour Some Sugar On Me', 'Def Leppard', ['classic-rock', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Pressure', 'Paramore', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Pumped Up Kicks', 'Foster The People', ['modern-hits', 'party-starters'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
   makeCover('Purple Haze', 'Jimi Hendrix', ['classic-rock']),
-  makeCover('Ready to Go (Get Me Out of My Mind)', 'Panic! At The Disco', ['emo-pop-punk', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Rebel Yell', 'Billy Idol', ['classic-rock', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Reptilia', 'The Strokes', ['modern-hits', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+    makeCover('Ride', '21 Pilots', ['modern-hits', 'party-starters']),
+
+
   makeCover('Rock and Roll', 'Led Zeppelin', ['classic-rock'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
   makeCover('Round and Round', 'Ratt', ['classic-rock']),
-  makeCover('R U Mine?', 'Arctic Monkeys', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+    makeCover('Rude', 'Magic!', ['modern-hits', 'party-starters']),
+
   makeCover("Runnin' With The Devil", 'Van Halen', ['classic-rock']),
   makeCover('Sabotage', 'Beastie Boys', ['party-starters', 'heavy']),
   makeCover('Santeria', 'Sublime', ['party-starters']),
-  makeCover('Santa Monica', 'Everclear', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Say It Ain’t So', 'Weezer', ['90s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Scream', 'Misfits', ['heavy']),
   makeCover('Seek and Destroy', 'Metallica', ['classic-rock', 'heavy']),
   makeCover('Semi-Charmed Life', 'Third Eye Blind', ['90s-alt', 'crowd-killers']),
   makeCover('Seven Nation Army', 'The White Stripes', ['modern-hits', 'crowd-killers']),
   makeCover('Sex On Fire', 'Kings Of Leon', ['modern-hits', 'crowd-killers']),
-  makeCover('Sex Type Thing', 'Stone Temple Pilots', ['90s-alt', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('She Looks So Perfect', '5 Seconds Of Summer', ['2000s-alt', 'party-starters']),
   makeCover('Shout At The Devil', 'Motley Crue', ['classic-rock', 'heavy']),
-  makeCover('Shut Up and Dance', 'Walk the Moon', ['party-starters', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Simple Man', 'Lynyrd Skynyrd / Shinedown', ['classic-rock']),
   makeCover('Sk8er Boi', 'Avril Lavigne', ['emo-pop-punk', 'crowd-killers']),
-  makeCover('Slide', 'Goo Goo Dolls', ['90s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
   makeCover('Smells Like Teen Spirit', 'Nirvana', ['90s-alt', 'crowd-killers']),
   makeCover('Somebody Told Me', 'The Killers', ['modern-hits', 'crowd-killers']),
-  makeCover('Someday', 'The Strokes', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Somewhere Only We Know', 'Keane', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+ 
+
   makeCover('Song 2', 'Blur', ['90s-alt', 'party-starters']),
   makeCover('Square Hammer', 'Ghost', ['heavy']),
   makeCover("Stacy's Mom", 'Fountains Of Wayne', ['party-starters', 'crowd-killers']),
   makeCover('Stairway To Heaven', 'Led Zeppelin', ['classic-rock']),
   makeCover('Still Into You', 'Paramore', ['emo-pop-punk', 'crowd-killers']),
-  makeCover('Sugar', 'System Of A Down', ['heavy']),
   makeCover("Sugar, We're Goin Down", 'Fall Out Boy', ['emo-pop-punk', 'crowd-killers']),
   makeCover('Sunday Morning', 'Maroon 5', ['party-starters', 'crowd-killers']),
   makeCover('Sunshine Of Your Love', 'Cream', ['classic-rock']),
@@ -1118,70 +848,20 @@ export const coverReleases = [
     availableOnRequest: true,
   }),
   makeCover('Sweet Home Alabama', 'Lynyrd Skynyrd', ['classic-rock', 'crowd-killers']),
-  makeCover('Sweetness', 'Jimmy Eat World', ['2000s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Take Me Out', 'Franz Ferdinand', ['modern-hits', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
+
   makeCover('Teenage Dirtbag', 'Wheatus', ['2000s-alt', 'crowd-killers']),
-  makeCover('Teenage Dream', 'Katy Perry', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Teenagers', 'My Chemical Romance', ['emo-pop-punk', 'crowd-killers']),
-  makeCover("That's What You Get", 'Paramore', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('The Anthem', 'Good Charlotte', ['emo-pop-punk']),
-  makeCover('The Distance', 'CAKE', ['90s-alt', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('The Freshmen', 'The Verve Pipe', ['90s-alt'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('The Great Escape', 'Boys Like Girls', ['emo-pop-punk', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('The Hell Song', 'Sum 41', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
   makeCover('The Middle', 'Jimmy Eat World', ['crowd-killers', '2000s-alt']),
   makeCover('The Rock Show', 'Blink-182', ['emo-pop-punk', 'crowd-killers']),
   makeCover('Them Bones', 'Alice In Chains', ['90s-alt', 'heavy']),
-  makeCover("There's No 'I' In Team", 'Taking Back Sunday', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Thnks fr th Mmrs', 'Fall Out Boy', ['emo-pop-punk', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Times Like These', 'Foo Fighters', ['90s-alt']),
-  makeCover('Tongue Tied', 'Grouplove', ['modern-hits', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Toxicity', 'System Of A Down', ['heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover('Treasure', 'Bruno Mars', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Uptown Funk', 'Mark Ronson ft. Bruno Mars', ['party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Use Somebody', 'Kings Of Leon', ['modern-hits', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
@@ -1189,7 +869,6 @@ export const coverReleases = [
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover('Vasoline', 'Stone Temple Pilots', ['90s-alt']),
   makeCover('Wagon Wheel', 'Old Crow Medicine Show / Darius Rucker', ['party-starters', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
@@ -1197,49 +876,18 @@ export const coverReleases = [
   makeCover('Walk', 'Pantera', ['heavy']),
   makeCover('War Pigs', 'Black Sabbath', ['classic-rock', 'heavy']),
   makeCover('We Will Rock You', 'Queen', ['classic-rock', 'crowd-killers']),
-  makeCover('Welcome to My Life', 'Simple Plan', ['emo-pop-punk'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
   makeCover('Welcome To Paradise', 'Green Day', ['2000s-alt', 'emo-pop-punk']),
-  makeCover('Welcome to the Black Parade', 'My Chemical Romance', ['emo-pop-punk', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('When I Come Around', 'Green Day', ['2000s-alt', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('When You Were Young', 'The Killers', ['modern-hits', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
+
   makeCover("What's My Age Again?", 'Blink-182', ['emo-pop-punk', 'crowd-killers'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
-  makeCover("What I Got", 'Sublime', ['90s-alt', 'party-starters'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
   makeCover("Wherever I May Roam", 'Metallica', ['classic-rock', 'heavy']),
-  makeCover("Why'd You Only Call Me When You're High?", 'Arctic Monkeys', ['modern-hits'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
   makeCover('Whole Lotta Love', 'Led Zeppelin', ['classic-rock'], {
     currentRotation: false,
     availableOnRequest: true,
   }),
   makeCover('Wonderwall', 'Oasis', ['party-starters', 'crowd-killers'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Would?', 'Alice In Chains', ['90s-alt', 'heavy'], {
-    currentRotation: false,
-    availableOnRequest: true,
-  }),
-  makeCover('Yellow Ledbetter', 'Pearl Jam', ['90s-alt'], {
     currentRotation: false,
     availableOnRequest: true,
   }),

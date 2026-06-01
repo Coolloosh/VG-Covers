@@ -26,7 +26,7 @@ export default function MusicCatalog() {
         title="VG Covers"
         subtitle={
           <span className="text-purple-400 text-xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">
-            A high-energy cover set built for packed rooms, big singalongs, and all kinds of crowds.
+            Sets built for packed rooms 
           </span>
         }
         gradientClass="bg-gradient-to-b from-transparent via-black/10 to-black"
@@ -38,16 +38,12 @@ export default function MusicCatalog() {
       <div className="bg-black text-white py-12 px-6">
         <section className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-green-300 uppercase tracking-[0.3em] text-xs sm:text-sm mb-3">
-              VG Covers Song List
-            </p>
+          
             <h2 className="text-3xl md:text-5xl font-extrabold text-purple-400 mb-4">
-              Built for every kind of night
+                            Cover Catalog
             </h2>
-            <p className="text-zinc-300 max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
-              From alt-rock staples and grunge favorites to party anthems and singalong classics,
-              our catalog is built to keep the energy high and the room locked in.
-            </p>
+           
+            
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 mb-12">
@@ -99,34 +95,53 @@ export default function MusicCatalog() {
 
               <div className="text-left lg:text-right">
                 <div className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">
-                  Catalog Size
+                  Collection Size
                 </div>
                 <div className="text-3xl font-extrabold text-green-300">
                   {songsByCategory.length}
                 </div>
                 <div className="text-zinc-400 text-sm">
-                  {activeCategory === 'all' ? 'songs available' : 'songs in this section'}
+                  {activeCategory === 'all' ? 'songs listed' : 'songs in this section'}
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {songsByCategory.map((cover) => (
-                <div
-                  key={cover.id}
-                  className="border border-purple-700 rounded-2xl px-5 py-4 hover:bg-zinc-900 transition duration-300"
-                >
-                  <Link
-                    to={`/music/covers/${cover.id}`}
-                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-green-300 font-semibold text-lg"
-                  >
-                    <span>{cover.title}</span>
-                    <span className="text-sm text-purple-300 italic sm:text-right">
-                      by {cover.originalArtist}
+              {songsByCategory.map((cover) => {
+                const hasPerformance = Boolean(cover.youtubeId);
+                const content = (
+                  <>
+                    <span className="leading-tight">{cover.title}</span>
+                    <span className="flex flex-col sm:items-end gap-2 text-sm text-purple-300 italic sm:text-right">
+                      <span>by {cover.originalArtist}</span>
                     </span>
-                  </Link>
-                </div>
-              ))}
+                  </>
+                );
+
+                return (
+                  <div
+                    key={cover.id}
+                    className={`border border-purple-700 rounded-2xl px-5 py-4 transition duration-300 ${
+                      hasPerformance
+                        ? 'hover:bg-zinc-900'
+                        : 'opacity-80 cursor-default'
+                    }`}
+                  >
+                    {hasPerformance ? (
+                      <Link
+                        to={`/music/covers/${cover.id}`}
+                        className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 text-green-300 font-semibold text-lg"
+                      >
+                        {content}
+                      </Link>
+                    ) : (
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 text-green-300 font-semibold text-lg">
+                        {content}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

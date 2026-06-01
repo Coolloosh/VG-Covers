@@ -29,7 +29,7 @@
           <h1 className="text-5xl md:text-6xl font-extrabold text-purple-200 drop-shadow-[0_0_40px_rgba(192,132,252,0.6)] mb-4 uppercase tracking-wide">
             ABOUT US
           </h1>
-          <p className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] opacity-90">Pop, Punk, Alt & Rock Anthems Fit For Any Occasion</p>
+          <p className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] opacity-90">Meet the band</p>
         </div>
                     </section>
               
@@ -41,6 +41,10 @@
                         </h2>
                         <p className="text-lg text-purple-200 mb-4 leading-relaxed">
                         Vanylla Godzylla is the premier party rock band born out of the University of Delaware. Formed in the stomach of Main Street (El Diablo) and refined in its heart (Deer Park Tavern), we built our sound in sweaty basements and backyard blowouts where the walls shook and the crowd sang every word. Today, we bring that same electric energy to bars, weddings, and events across the East Coast — playing Pop, Punk, Alt, and Rock anthems fit for any occasion.
+                        </p>
+                        <p className="text-lg text-purple-200 mb-4 leading-relaxed">
+
+                        The band's current lineup features Jonny on guitar and lead vocals, Alex on guitar, Bailey on bass, and Matty "Stix" on drums. 
 
                         </p>
                        

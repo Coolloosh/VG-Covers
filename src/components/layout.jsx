@@ -41,9 +41,14 @@ export default function Layout() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const navLinkClass = ({ isActive }) => `uppercase tracking-widest font-bold transition ${
+  const navLinkClass = ({ isActive }) => `uppercase tracking-widest font-bold text-[1.08rem] transition ${
     isActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
   }`;
+  const galleryIsActive = location.pathname.startsWith('/gallery');
+  const dropdownParentClass = (isActive) => `flex items-center gap-1 uppercase font-bold text-[1.08rem] transition ${
+    isActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
+  }`;
+
   return (
 <div className="bg-black text-white font-sans min-h-screen relative overflow-x-hidden">
       <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
@@ -98,9 +103,40 @@ export default function Layout() {
             </div>
 
             <div className="flex flex-col gap-6 text-2xl font-bold">
-              <NavLink onClick={() => setMobileOpen(false)} to="/contact" className={navLinkClass}>CONTACT</NavLink>
               <NavLink onClick={() => setMobileOpen(false)} to="/band" className={navLinkClass}>BAND</NavLink>
               <NavLink onClick={() => setMobileOpen(false)} to="/music" className={navLinkClass}>MUSIC</NavLink>
+              <div>
+              <button
+  className={`flex justify-between items-center w-full text-left text-2xl font-bold transition ${
+    galleryIsActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
+  }`}
+  onClick={() => setGalleryOpen(!galleryOpen)}
+>
+                  GALLERY <ChevronDown className={`ml-2 transition-transform ${galleryOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {galleryOpen && (
+                  <div className="ml-4 mt-2 flex flex-col space-y-2 text-lg">
+<NavLink
+  onClick={() => setMobileOpen(false)}
+  to="/gallery/videos"
+  className={`text-purple-300 text-lg transition ${
+    !isMobile ? 'hover:text-white' : ''
+  }`}
+>
+  Videos
+</NavLink>
+<NavLink
+  onClick={() => setMobileOpen(false)}
+  to="/gallery/photos"
+  className={`text-purple-300 text-lg transition ${
+    !isMobile ? 'hover:text-white' : ''
+  }`}
+>
+  Photos
+</NavLink>
+                  </div>
+                )}
+              </div>
 
               <div>
               <button
@@ -135,39 +171,6 @@ export default function Layout() {
                 )}
               </div>
 
-              <div>
-              <button
-  className={`flex justify-between items-center w-full text-left text-white text-2xl font-bold transition ${
-    !isMobile ? 'hover:text-green-400' : ''
-  }`}
-  onClick={() => setGalleryOpen(!galleryOpen)}
->
-                  GALLERY <ChevronDown className={`ml-2 transition-transform ${galleryOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {galleryOpen && (
-                  <div className="ml-4 mt-2 flex flex-col space-y-2 text-lg">
-<NavLink
-  onClick={() => setMobileOpen(false)}
-  to="/gallery/photos"
-  className={`text-purple-300 text-lg transition ${
-    !isMobile ? 'hover:text-white' : ''
-  }`}
->
-  Photos
-</NavLink>                   
-<NavLink
-  onClick={() => setMobileOpen(false)}
-  to="/gallery/videos"
-  className={`text-purple-300 text-lg transition ${
-    !isMobile ? 'hover:text-white' : ''
-  }`}
->
-  Videos
-</NavLink>                  </div>
-                )}
-              </div>
-
-              <NavLink onClick={() => setMobileOpen(false)} to="/fanclub" className={navLinkClass}>FANCLUB</NavLink>
               <NavLink onClick={() => setMobileOpen(false)} to="/merch" className={navLinkClass}>SHOP</NavLink>
               <NavLink onClick={() => setMobileOpen(false)} to="/booking" className={navLinkClass}>BOOKING</NavLink>
             </div>
@@ -186,8 +189,8 @@ export default function Layout() {
 
         {/* DESKTOP NAV */}
         <div className="hidden md:flex justify-center items-center py-4">
-          <div className="flex items-center gap-12 relative" style={{ paddingRight: "20px", transform: "translateX(-24px)" }}>
-            <div className="flex gap-6 items-center">
+          <div className="flex items-center gap-16 relative" style={{ paddingRight: "20px" }}>
+            <div className="flex min-w-[430px] justify-end gap-8 items-center">
               <div className="flex gap-3 pr-4">
                 <a href="https://www.instagram.com/vanylla.godzylla/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-instagram text-xl"></i></a>
                 <a href="https://www.tiktok.com/@vanyllagodzylla" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-tiktok text-xl"></i></a>
@@ -195,24 +198,23 @@ export default function Layout() {
                 <a href="https://open.spotify.com/artist/12x1KFm8qY060D9wyrjyqo?si=vvyRemjhS3i3DW7wuVvQzg" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-spotify text-xl"></i></a>
                 <a href="https://www.facebook.com/people/Vanylla-Godzylla/61569538812755/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-facebook-f text-xl"></i></a>
               </div>
-              <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
               <NavLink to="/band" className={navLinkClass}>Band</NavLink>
               <NavLink to="/music" className={navLinkClass}>Music</NavLink>
               <div
                 className="relative"
-                onMouseEnter={() => handleDropdown(setShowsOpen, true, showsTimeout)}
-                onMouseLeave={() => handleDropdown(setShowsOpen, false, showsTimeout)}
+                onMouseEnter={() => handleDropdown(setGalleryOpen, true, galleryTimeout)}
+                onMouseLeave={() => handleDropdown(setGalleryOpen, false, galleryTimeout)}
               >
                 <button
-                  onClick={() => navigate('/shows')}
-                  className="flex items-center gap-1 text-white hover:text-green-400 uppercase font-bold"
+                  onClick={() => navigate('/gallery/videos')}
+                  className={dropdownParentClass(galleryIsActive)}
                 >
-                  Shows <ChevronDown size={14} className={`transition-transform ${showsOpen ? 'rotate-180' : ''}`} />
+                  Gallery <ChevronDown size={14} className={`transition-transform ${galleryOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {showsOpen && (
+                {galleryOpen && (
                   <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-black/80 backdrop-blur-md border border-purple-700 rounded-lg shadow-xl z-50">
-                    <button onClick={() => navigate('/shows')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Upcoming Shows</button>
-                    <button onClick={() => navigate('/past-shows')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Past Shows</button>
+                    <button onClick={() => navigate('/gallery/videos')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Videos</button>
+                    <button onClick={() => navigate('/gallery/photos')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Photos</button>
                   </div>
                 )}
               </div>
@@ -224,26 +226,25 @@ export default function Layout() {
               </div>
             </div>
 
-            <div className="flex gap-6 items-center">
+            <div className="flex min-w-[430px] justify-start gap-8 items-center">
               <div
                 className="relative"
-                onMouseEnter={() => handleDropdown(setGalleryOpen, true, galleryTimeout)}
-                onMouseLeave={() => handleDropdown(setGalleryOpen, false, galleryTimeout)}
+                onMouseEnter={() => handleDropdown(setShowsOpen, true, showsTimeout)}
+                onMouseLeave={() => handleDropdown(setShowsOpen, false, showsTimeout)}
               >
                 <button
-                  onClick={() => navigate('/gallery/photos')}
-                  className="flex items-center gap-1 text-white hover:text-green-400 uppercase font-bold"
+                  onClick={() => navigate('/shows')}
+                  className="flex items-center gap-1 text-white hover:text-green-400 uppercase font-bold text-[1.08rem]"
                 >
-                  Gallery <ChevronDown size={14} className={`transition-transform ${galleryOpen ? 'rotate-180' : ''}`} />
+                  Shows <ChevronDown size={14} className={`transition-transform ${showsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {galleryOpen && (
+                {showsOpen && (
                   <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-black/80 backdrop-blur-md border border-purple-700 rounded-lg shadow-xl z-50">
-                    <button onClick={() => navigate('/gallery/photos')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Photos</button>
-                    <button onClick={() => navigate('/gallery/videos')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Videos</button>
+                    <button onClick={() => navigate('/shows')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Upcoming Shows</button>
+                    <button onClick={() => navigate('/past-shows')} className="block w-full text-left px-6 py-2 hover:bg-purple-800 whitespace-nowrap">Past Shows</button>
                   </div>
                 )}
               </div>
-              <NavLink to="/fanclub" className={navLinkClass}>Fanclub</NavLink>
               <NavLink to="/merch" className={navLinkClass}>Shop</NavLink>
               <NavLink to="/booking" className={navLinkClass}>Booking</NavLink>
               <button onClick={() => setCartOpen(true)} className="hover:text-green-400 relative">

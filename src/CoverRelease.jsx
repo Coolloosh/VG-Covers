@@ -9,6 +9,26 @@ export default function CoverRelease() {
   const cover = coverReleases.find((c) => c.id === coverId);
 
   if (!cover) return <div className="text-white p-6">Cover not found.</div>;
+  if (!cover.youtubeId) {
+    return (
+      <main className="min-h-screen bg-black text-white font-sans flex flex-col items-center justify-center text-center px-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-300 mb-4">
+          Performance Not Linked
+        </h1>
+        <p className="text-zinc-300 max-w-xl mb-8">
+          This cover is in the repertoire, but there is not a live performance video linked yet.
+        </p>
+        <Link
+          to="/music"
+          className={`inline-block text-purple-400 text-lg font-semibold tracking-wide transition duration-200 ${
+            !isMobile ? 'hover:text-green-400 hover:underline' : ''
+          }`}
+        >
+          ← Back to Cover Repertoire
+        </Link>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-black text-white font-sans pt-0 px-4 pb-5">
@@ -49,7 +69,7 @@ export default function CoverRelease() {
                 !isMobile ? 'hover:text-green-400 hover:underline' : ''
               }`}
             >
-              ← Back to Music Catalog
+              ← Back to Cover Repertoire
             </Link>
           </div>
         </section>
