@@ -28,7 +28,7 @@ function normalizeShow(slug, show) {
 export default function PastShowsPage() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
-  const { groupedByYear } = useMemo(() => {
+  const { yearGroups } = useMemo(() => {
     const today = new Date();
     const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     const merged = new Map();
@@ -65,7 +65,13 @@ export default function PastShowsPage() {
       (acc[y] ||= []).push(s);
       return acc;
     }, {});
-    return { groupedByYear: grouped };
+    const groups = Object.entries(grouped).sort(([yearA], [yearB]) => {
+      if (yearA === 'Undated') return 1;
+      if (yearB === 'Undated') return -1;
+      return Number(yearB) - Number(yearA);
+    });
+
+    return { yearGroups: groups };
   }, []);
 
   return (
@@ -82,12 +88,12 @@ export default function PastShowsPage() {
       <div className="min-h-screen px-6 py-12 max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-purple-300 mb-8 text-center">Shows Archive</h1>
 
-        {Object.keys(groupedByYear).length === 0 && (
+        {yearGroups.length === 0 && (
           <p className="text-center text-purple-200">No archive yet — more to come.</p>
         )}
 
         <div className="space-y-10">
-          {Object.entries(groupedByYear).map(([year, items]) => (
+          {yearGroups.map(([year, items]) => (
             <section key={year}>
               <h2 className="text-xl font-semibold text-green-400 mb-4">{year}</h2>
               <ul className="divide-y divide-purple-900/40 rounded-xl border border-purple-800/40 overflow-hidden bg-gradient-to-b from-black/40 to-zinc-950/40">
