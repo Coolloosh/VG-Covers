@@ -151,7 +151,7 @@ function ShowRow({ show }) {
 
 export default function UpcomingShowsPage() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-  const { shows, loading, error, missingConfig } = useGoogleCalendarShows();
+  const { shows, loading, error } = useGoogleCalendarShows();
 
   const grouped = useMemo(() => {
     return shows.reduce((acc, show) => {
@@ -194,13 +194,7 @@ export default function UpcomingShowsPage() {
           </Link>
         </div>
 
-        {missingConfig && (
-          <div className="rounded-xl border border-purple-800 bg-zinc-950/80 p-6 text-center text-purple-200">
-            Add `VITE_GOOGLE_CALENDAR_ID` and `VITE_GOOGLE_CALENDAR_API_KEY` to `.env` to sync upcoming shows.
-          </div>
-        )}
-
-        {!missingConfig && loading && (
+        {loading && (
           <div className="grid gap-5">
             {[0, 1, 2].map(item => (
               <div key={item} className="h-32 rounded-xl border border-purple-900/50 bg-zinc-950/80 animate-pulse" />
@@ -208,17 +202,17 @@ export default function UpcomingShowsPage() {
           </div>
         )}
 
-        {!missingConfig && error && (
+        {error && (
           <div className="rounded-xl border border-red-500/40 bg-red-950/20 p-6 text-center text-red-200">
-            {error}
+            We could not load upcoming shows right now. Please check back soon.
           </div>
         )}
 
-        {!missingConfig && !loading && !error && shows.length === 0 && (
+        {!loading && !error && shows.length === 0 && (
           <p className="text-center text-purple-200">More dates announced soon. Check back shortly.</p>
         )}
 
-        {!missingConfig && !loading && !error && shows.length > 0 && (
+        {!loading && !error && shows.length > 0 && (
           <>
             <NextShowFeature show={nextShow} />
 

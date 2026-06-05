@@ -4,10 +4,8 @@ import { formatShowDate, formatShowTime, useGoogleCalendarShows } from './google
 
 export default function UpcomingShows() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-  const { shows, loading, error, missingConfig } = useGoogleCalendarShows();
+  const { shows, loading, error } = useGoogleCalendarShows();
   const featuredShows = shows.slice(0, 3);
-
-  if (missingConfig) return null;
 
   return (
     <section id="shows" className="bg-black py-20 px-6 max-w-7xl mx-auto text-white">
