@@ -23,8 +23,8 @@ export default function PhotoGallery() {
     <main className="min-h-screen bg-black text-white font-sans">
       <PageHero
         image="/photos3.webp"
-        title="Vanylla Photos"
-        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">how pretty...</span>}
+        title="Live Photos"
+        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">say cheese</span>}
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
         imageClass="object-[65%_center] sm:object-center brightness-50 scale-85 transition duration-[2000ms]"
         titleColor="purple"

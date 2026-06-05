@@ -86,7 +86,7 @@ export default function BookingPage() {
 
         <div className="mb-12">
           <h2 className="text-2xl font-semibold text-green-400 mb-4">EPK</h2>
-          <p className="mb-4 text-purple-200">Need our bio, photos, live video, repertoire, or tech info? View the EPK here, then send the details for your date below.</p>
+          <p className="mb-4 text-purple-200">Interested in booking us? View the EPK here, then send the details for your date below and we'll be in touch shortly!</p>
           <button
   onClick={() => setShowViewer(!showViewer)}
   className={`inline-block bg-purple-600 text-white font-bold px-6 py-3 rounded-full shadow-md mb-4 mr-4 transition ${
@@ -121,7 +121,7 @@ export default function BookingPage() {
         <div>
           <h2 className="text-2xl font-semibold text-green-400 mb-4">Send Booking Details</h2>
           <p className="mb-6 text-purple-200">
-            Tell us about the room, date, and timing. We will follow up with availability and next steps.
+            Tell us about the event, date, and timing. We will follow up with availability and next steps.
           </p>
           {formSubmitted && (
             <p className={`text-green-400 font-semibold mt-6 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>

@@ -1,48 +1,178 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from './PageHero';
-import { upcomingShows } from './Showsdata.js';
+import {
+  formatMonth,
+  formatShowDate,
+  formatShowTime,
+  useGoogleCalendarShows,
+} from './googleCalendarShows';
+
+function Chip({ children, className = 'bg-zinc-800 text-zinc-200 border-zinc-700' }) {
+  return (
+    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide border ${className}`}>
+      {children}
+    </span>
+  );
+}
+
+function ShowActions({ show, compact = false }) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  return (
+    <div className={`flex flex-wrap gap-3 ${compact ? 'mt-4' : 'mt-5'}`}>
+      {show.ticketLink && !show.soldOut && (
+        <a
+          href={show.ticketLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center bg-green-500 text-black font-bold px-5 py-2.5 rounded-full transition ${
+            !isMobile ? 'hover:bg-green-400 hover:scale-[1.03]' : ''
+          }`}
+        >
+          Tickets
+        </a>
+      )}
+      {show.location && (
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.location)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center border border-purple-600 text-purple-200 font-bold px-5 py-2.5 rounded-full transition ${
+            !isMobile ? 'hover:bg-purple-700/40 hover:text-white' : ''
+          }`}
+        >
+          Map
+        </a>
+      )}
+      {show.calendarLink && (
+        <a
+          href={show.calendarLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center border border-purple-800 text-purple-300 font-bold px-5 py-2.5 rounded-full transition ${
+            !isMobile ? 'hover:bg-purple-900/50 hover:text-white' : ''
+          }`}
+        >
+          Calendar
+        </a>
+      )}
+    </div>
+  );
+}
+
+function ShowBadges({ show }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {show.private && <Chip>Private</Chip>}
+      {show.soldOut && <Chip className="bg-red-500/20 text-red-300 border-red-500/40">Sold Out</Chip>}
+      {show.free && !show.soldOut && <Chip className="bg-green-500/15 text-green-300 border-green-500/30">Free</Chip>}
+      {show.age21 && <Chip>21+</Chip>}
+    </div>
+  );
+}
+
+function NextShowFeature({ show }) {
+  if (!show) return null;
+  const day = new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(show.date);
+  const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(show.date);
+
+  return (
+    <section className="mb-14 overflow-hidden rounded-2xl border border-purple-700 bg-gradient-to-br from-zinc-950 via-black to-purple-950/40 shadow-[0_0_45px_rgba(128,0,128,0.25)]">
+      <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="relative min-h-[18rem] flex items-center justify-center bg-purple-950/30 border-b lg:border-b-0 lg:border-r border-purple-800/60">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.22),transparent_48%)]" />
+          <div className="relative text-center">
+            <p className="text-green-400 text-sm font-extrabold uppercase tracking-[0.35em] mb-3">Next Show</p>
+            <p className="text-8xl sm:text-9xl font-black text-white leading-none drop-shadow-[0_0_25px_rgba(34,197,94,0.3)]">
+              {day}
+            </p>
+            <p className="text-3xl font-extrabold uppercase tracking-wide text-purple-200">{month}</p>
+          </div>
+        </div>
+
+        <div className="p-6 sm:p-9">
+          <ShowBadges show={show} />
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-purple-200 mt-5 leading-tight uppercase">
+            {show.title}
+          </h2>
+          <div className="mt-5 space-y-2 text-lg text-purple-200">
+            <p>
+              <span className="text-green-400 font-bold">When:</span> {formatShowDate(show, { weekday: 'long', year: 'numeric' })}
+              {formatShowTime(show) ? ` • ${formatShowTime(show)}` : ''}
+            </p>
+            {show.location && (
+              <p>
+                <span className="text-green-400 font-bold">Where:</span> {show.location}
+              </p>
+            )}
+            {show.notes && <p className="text-purple-300 italic">{show.notes}</p>}
+          </div>
+          <ShowActions show={show} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ShowRow({ show }) {
+  const day = new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(show.date);
+  const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(show.date);
+
+  return (
+    <article className="group rounded-xl border border-purple-800/50 bg-zinc-950/70 p-4 sm:p-5 transition hover:border-green-500/60 hover:bg-zinc-900/80">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-start">
+        <div className="w-24 shrink-0 rounded-lg border border-purple-800 bg-black/70 px-4 py-3 text-center">
+          <p className="text-green-400 text-sm font-extrabold uppercase">{month}</p>
+          <p className="text-white text-4xl font-black leading-none mt-1">{day}</p>
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3">
+            <div>
+              <h3 className="text-2xl font-extrabold text-white uppercase tracking-wide">
+                {show.title}
+              </h3>
+              <p className="text-purple-200 mt-1">
+                {formatShowDate(show)}
+                {formatShowTime(show) ? ` • ${formatShowTime(show)}` : ''}
+              </p>
+              {show.location && <p className="text-purple-300 text-sm mt-1">{show.location}</p>}
+            </div>
+            <ShowBadges show={show} />
+          </div>
+          {show.notes && <p className="text-sm text-purple-300 italic mt-3">{show.notes}</p>}
+          <ShowActions show={show} compact />
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function UpcomingShowsPage() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const { shows, loading, error, missingConfig } = useGoogleCalendarShows();
 
-  // Normalize, filter to future, sort asc, and group by Month YYYY
   const grouped = useMemo(() => {
-    const today = new Date();
-    const fmtMonth = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
-    const fmtDate = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-
-    const parsed = upcomingShows
-      .map(s => {
-        // Prefer an ISO field if you add one; fall back to the date string.
-        const d = s.isoDate ? new Date(s.isoDate) : new Date(s.date);
-        return { ...s, _date: d, _dateLabel: fmtDate.format(d), _monthLabel: fmtMonth.format(d) };
-      })
-      .filter(s => !isNaN(s._date) && s._date >= new Date(today.getFullYear(), today.getMonth(), today.getDate()))
-      .sort((a, b) => a._date - b._date);
-
-    // Group by month label
-    return parsed.reduce((acc, s) => {
-      acc[s._monthLabel] = acc[s._monthLabel] || [];
-      acc[s._monthLabel].push(s);
+    return shows.reduce((acc, show) => {
+      const month = formatMonth(show);
+      acc[month] ||= [];
+      acc[month].push(show);
       return acc;
     }, {});
-  }, []);
+  }, [shows]);
 
-  const chip = (text, color = 'bg-zinc-800 text-zinc-200 border-zinc-700') => (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold border ${color}`}>
-      {text}
-    </span>
-  );
+  const nextShow = shows[0];
+  const remainingShows = shows.slice(1);
 
   return (
     <main className="min-h-screen bg-black text-white font-sans">
       <PageHero
         image="/shows4.webp"
-        title="Future Shows"
+        title="Upcoming Shows"
         subtitle={
           <span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">
-            where we're going...
+            synced from the VG calendar
           </span>
         }
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
@@ -52,90 +182,67 @@ export default function UpcomingShowsPage() {
       />
 
       <div className="min-h-screen px-6 py-12 max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-purple-300 mb-8 text-center">All Upcoming Shows</h1>
-
-        {/* Month groups */}
-        <div className="space-y-10">
-          {Object.keys(grouped).length === 0 && (
-            <p className="text-center text-purple-200">More dates announced soon — stay tuned!</p>
-          )}
-
-          {Object.entries(grouped).map(([month, shows]) => (
-            <section key={month}>
-              <h2 className="text-xl font-semibold text-green-400 mb-4">{month}</h2>
-
-              <ul className="divide-y divide-purple-900/40 rounded-xl border border-purple-800/40 overflow-hidden bg-gradient-to-b from-black/40 to-zinc-950/40">
-                {shows.map(show => {
-                  const isSold = !!show.soldOut;
-                  const hasTix = !!show.ticketLink && !isSold;
-                  const isPrivate = /private/i.test(show.notes || '') || show.private;
-                  const age21 = /21\+/.test(show.notes || '') || show.age === '21+';
-
-                  return (
-                    <li key={show.slug} className="p-4 sm:p-5 hover:bg-zinc-900/40 transition">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-                        {/* Left: date */}
-                        <div className="sm:w-40 shrink-0">
-                          <p className="text-green-400 font-bold">{show._dateLabel}</p>
-                          {age21 && <div className="mt-2 sm:hidden">{chip('21+', 'bg-zinc-800 text-zinc-200 border-zinc-700')}</div>}
-                        </div>
-
-                        {/* Middle: venue & notes (row grows) */}
-                        <div className="flex-1 min-w-0">
-                          <p className="text-white font-semibold truncate">
-                            {show.location}{show.city ? `, ${show.city}` : ''}
-                          </p>
-                          {show.time && <p className="text-sm text-purple-300">{show.time}</p>}
-                          {show.notes && <p className="text-sm text-purple-300">{show.notes}</p>}
-                          {/* Optional address line if provided */}
-                          {show.address && <p className="text-xs text-purple-400 mt-1">{show.address}</p>}
-                        </div>
-
-                        {/* Right: actions */}
-                        <div className="flex items-center gap-2 sm:gap-3 sm:self-auto">
-                          {isPrivate && chip('Private Event')}
-                          {isSold && chip('Sold Out', 'bg-red-500/20 text-red-300 border-red-500/40')}
-                          {!isSold && !hasTix && (show.free || /free/i.test(show.notes || ''))
-                            ? chip('Free Entry', 'bg-green-500/15 text-green-300 border-green-500/30')
-                            : null}
-                          {!isSold && !hasTix && show.ticketNote && chip(show.ticketNote)}
-                          {age21 && <div className="hidden sm:block">{chip('21+')}</div>}
-
-                          {hasTix && (
-                            <a
-                              href={show.ticketLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold bg-green-500 text-black hover:bg-green-400 transition"
-                            >
-                              Tickets
-                            </a>
-                          )}
-
-                          {/* Optional detail link if you keep show pages */}
-                          {show.slug && (
-                            <Link
-                              to={`/shows/${show.slug}`}
-                              className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold border border-purple-600 text-purple-200 hover:bg-purple-700/30 transition"
-                            >
-                              Details
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <Link to="/past-shows" className="text-purple-400 font-bold text-lg hover:underline">
-            View Past Shows
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <div>
+            <h1 className="text-4xl font-bold text-purple-300">Shows</h1>
+            <p className="text-purple-200 mt-2 max-w-2xl">
+              Dates update automatically from our Google Calendar.
+            </p>
+          </div>
+          <Link to="/past-shows" className="text-green-400 font-bold text-lg hover:underline">
+            Past Shows
           </Link>
         </div>
+
+        {missingConfig && (
+          <div className="rounded-xl border border-purple-800 bg-zinc-950/80 p-6 text-center text-purple-200">
+            Add `VITE_GOOGLE_CALENDAR_ID` and `VITE_GOOGLE_CALENDAR_API_KEY` to `.env` to sync upcoming shows.
+          </div>
+        )}
+
+        {!missingConfig && loading && (
+          <div className="grid gap-5">
+            {[0, 1, 2].map(item => (
+              <div key={item} className="h-32 rounded-xl border border-purple-900/50 bg-zinc-950/80 animate-pulse" />
+            ))}
+          </div>
+        )}
+
+        {!missingConfig && error && (
+          <div className="rounded-xl border border-red-500/40 bg-red-950/20 p-6 text-center text-red-200">
+            {error}
+          </div>
+        )}
+
+        {!missingConfig && !loading && !error && shows.length === 0 && (
+          <p className="text-center text-purple-200">More dates announced soon. Check back shortly.</p>
+        )}
+
+        {!missingConfig && !loading && !error && shows.length > 0 && (
+          <>
+            <NextShowFeature show={nextShow} />
+
+            {remainingShows.length > 0 && (
+              <div className="space-y-10">
+                {Object.entries(grouped).map(([month, monthShows]) => {
+                  const visibleShows = monthShows.filter(show => show.id !== nextShow.id);
+                  if (!visibleShows.length) return null;
+
+                  return (
+                    <section key={month}>
+                      <h2 className="text-xl font-semibold text-green-400 mb-4">{month}</h2>
+                      <div className="space-y-4">
+                        {visibleShows.map(show => (
+                          <ShowRow key={show.id} show={show} />
+                        ))}
+                      </div>
+                    </section>
+                  );
+                })}
+              </div>
+            )}
+          </>
+        )}
       </div>
 
       <footer className="bg-black py-6 text-center text-sm text-gray-500">

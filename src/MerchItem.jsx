@@ -17,7 +17,7 @@ const merchItems = [
     id: "OGShirt",
     name: "OG Tee",
     price: 2500,
-    image: "/OGShirt.webp",
+    image: "/OGShirt.png",
     description: "Cream colored tee containing the original print.",
     sizes: ["S", "M", "L", "XL", "XXL"]
   },

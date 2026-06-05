@@ -44,7 +44,7 @@
                         </p>
                         <p className="text-lg text-purple-200 mb-4 leading-relaxed">
 
-                        The band's current lineup features Jonny on guitar and lead vocals, Alex on guitar, Bailey on bass, and Matty "Stix" on drums. 
+                        The band's current lineup features Jonny on guitar and lead vocals, Alex on guitar, Bailey on bass, and Matty "Stix" on drums. If you're interested in our originals, you can check them out here: <a href="https://www.vanyllagodzylla.com/music" className="text-green-400 hover:text-green-300 transition">Originals</a>.
 
                         </p>
                        
