@@ -40,7 +40,7 @@
                           Tales Of the Beast
                         </h2>
                         <p className="text-lg text-purple-200 mb-4 leading-relaxed">
-                        Vanylla Godzylla is the premier party rock band born out of the University of Delaware. Formed in the stomach of Main Street (El Diablo) and refined in its heart (Deer Park Tavern), we built our sound in sweaty basements and backyard blowouts where the walls shook and the crowd sang every word. Today, we bring that same electric energy to bars, weddings, and events across the East Coast — playing Pop, Punk, Alt, and Rock anthems fit for any occasion.
+                        Vanylla Godzylla is the premiere party rock band born out of the University of Delaware. Formed in the stomach of Main Street (El Diablo) and refined in its heart (Deer Park Tavern), we built our sound in sweaty basements and backyard blowouts where the walls shook and mysterious liquids dripped from the ceilings. Today, we bring that same electric energy to bars, weddings, and events across the East Coast — playing Pop, Punk, Alt, and Rock anthems fit for any occasion.
                         </p>
                         <p className="text-lg text-purple-200 mb-4 leading-relaxed">
 

@@ -13,6 +13,7 @@ export default function VanyllaGodzyllaSite() {
     name: '',
     email: '',
     location: '',
+    estimatedDate: '',
     message: '',
   });
 
@@ -78,6 +79,7 @@ export default function VanyllaGodzyllaSite() {
       `Name: ${bookingInquiry.name}`,
       `Email: ${bookingInquiry.email}`,
       `Location: ${bookingInquiry.location || 'Not provided'}`,
+      `Estimated date: ${bookingInquiry.estimatedDate || 'Not decided yet'}`,
       '',
       'Message:',
       bookingInquiry.message,
@@ -207,6 +209,14 @@ export default function VanyllaGodzyllaSite() {
                   value={bookingInquiry.location}
                   onChange={handleInquiryChange}
                   placeholder="Location"
+                  className="w-full sm:col-span-2 bg-zinc-900 text-white placeholder-purple-300 border border-purple-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <input
+                  type="text"
+                  name="estimatedDate"
+                  value={bookingInquiry.estimatedDate}
+                  onChange={handleInquiryChange}
+                  placeholder="Estimated Date (or general timeframe)"
                   className="w-full sm:col-span-2 bg-zinc-900 text-white placeholder-purple-300 border border-purple-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
                 <textarea

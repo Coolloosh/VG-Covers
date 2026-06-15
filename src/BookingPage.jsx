@@ -118,25 +118,55 @@ export default function BookingPage() {
 </a>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold text-green-400 mb-4">Send Booking Details</h2>
-          <p className="mb-6 text-purple-200">
-            Tell us about the event, date, and timing. We will follow up with availability and next steps.
-          </p>
+        <section className="overflow-hidden rounded-2xl border border-purple-900/80 bg-zinc-950/80 shadow-[0_0_40px_rgba(126,34,206,0.14)]">
+          <div className="flex items-center gap-4 border-b border-purple-900/70 bg-zinc-950 px-5 py-5 sm:px-7">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-black">
+                <img
+                  src="/Starleigh-Logo.png"
+                  alt="Starleigh Entertainment"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="mb-1 text-xs font-extrabold uppercase tracking-[0.2em] text-green-400">
+                  Booking managed by
+                </p>
+                <p className="font-bold text-white">Gary Hutson</p>
+                <p className="text-xs uppercase tracking-wider text-purple-300">Starleigh Entertainment</p>
+              </div>
+              <div className="hidden shrink-0 flex-col items-end gap-1 text-sm sm:flex">
+                  <a href="mailto:gary@starleigh.com" className="text-purple-100 transition hover:text-green-400">
+                    gary@starleigh.com
+                  </a>
+                  <a href="tel:4109602108" className="text-purple-100 transition hover:text-green-400">
+                    410-960-2108
+                  </a>
+              </div>
+          </div>
+
+          <div className="px-5 py-6 sm:px-7 sm:py-7">
+          <div className="mb-5 flex flex-col gap-1 text-sm sm:hidden">
+            <a href="mailto:gary@starleigh.com" className="text-purple-100 transition hover:text-green-400">
+              gary@starleigh.com
+            </a>
+            <a href="tel:4109602108" className="text-purple-100 transition hover:text-green-400">
+              410-960-2108
+            </a>
+          </div>
           {formSubmitted && (
-            <p className={`text-green-400 font-semibold mt-6 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+            <p className={`rounded-xl border border-green-800 bg-green-950/30 p-4 text-green-400 font-semibold transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
               Thanks! Your message has been sent.
             </p>
           )}
 
           {formError && (
-            <p className={`text-red-400 font-semibold mt-6 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+            <p className={`rounded-xl border border-red-800 bg-red-950/30 p-4 text-red-400 font-semibold transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
               ⚠️ {formError}
             </p>
           )}
 
           {!formSubmitted && (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <input type="text" name="_gotcha" className="hidden" />
 
               <input
@@ -146,7 +176,7 @@ export default function BookingPage() {
                 onChange={handleChange}
                 placeholder="Your Name"
                 required
-                className="w-full p-3 rounded-md text-black"
+                className="w-full rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
               />
               <input
                 type="email"
@@ -155,7 +185,7 @@ export default function BookingPage() {
                 onChange={handleChange}
                 placeholder="Your Email"
                 required
-                className="w-full p-3 rounded-md text-black"
+                className="w-full rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500"
               />
              
               <input
@@ -164,7 +194,7 @@ export default function BookingPage() {
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="Location"
-                className="w-full p-3 rounded-md text-black"
+                className="w-full rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500 sm:col-span-2"
               />
               <textarea
                 name="message"
@@ -173,19 +203,20 @@ export default function BookingPage() {
                 placeholder="Message / set time / buyer notes"
                 rows="4"
                 required
-                className="w-full p-3 rounded-md text-black"
+                className="w-full resize-none rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500 sm:col-span-2"
               />
               <button
   type="submit"
-  className={`bg-purple-600 px-6 py-3 rounded-md font-bold transition ${
-    !isMobile ? 'hover:bg-purple-500' : ''
+  className={`rounded-full bg-green-500 px-7 py-3 font-bold text-black transition sm:col-span-2 sm:justify-self-start ${
+    !isMobile ? 'hover:bg-green-400 hover:shadow-[0_0_20px_rgba(74,222,128,0.2)]' : ''
   }`}
 >
   Send Booking Inquiry
 </button>
             </form>
           )}
-        </div>
+          </div>
+        </section>
       </div>
     </div>
     <footer className="bg-black py-6 text-center text-sm text-gray-500">

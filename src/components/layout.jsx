@@ -44,6 +44,9 @@ export default function Layout() {
   const navLinkClass = ({ isActive }) => `uppercase tracking-widest font-bold text-[1.08rem] transition ${
     isActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
   }`;
+  const mobileNavLinkClass = ({ isActive }) => `uppercase tracking-widest text-2xl font-bold transition ${
+    isActive ? 'text-green-400' : 'text-white'
+  }`;
   const galleryIsActive = location.pathname.startsWith('/gallery');
   const dropdownParentClass = (isActive) => `flex items-center gap-1 uppercase font-bold text-[1.08rem] transition ${
     isActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
@@ -103,11 +106,11 @@ export default function Layout() {
             </div>
 
             <div className="flex flex-col gap-6 text-2xl font-bold">
-              <NavLink onClick={() => setMobileOpen(false)} to="/band" className={navLinkClass}>BAND</NavLink>
-              <NavLink onClick={() => setMobileOpen(false)} to="/music" className={navLinkClass}>MUSIC</NavLink>
+              <NavLink onClick={() => setMobileOpen(false)} to="/band" className={mobileNavLinkClass}>BAND</NavLink>
+              <NavLink onClick={() => setMobileOpen(false)} to="/music" className={mobileNavLinkClass}>MUSIC</NavLink>
               <div>
               <button
-  className={`flex justify-between items-center w-full text-left text-2xl font-bold transition ${
+  className={`flex justify-between items-center w-full text-left uppercase tracking-widest text-2xl font-bold transition ${
     galleryIsActive ? 'text-green-400' : (!isMobile ? 'text-white hover:text-green-400' : 'text-white')
   }`}
   onClick={() => setGalleryOpen(!galleryOpen)}
@@ -140,7 +143,7 @@ export default function Layout() {
 
               <div>
               <button
-  className={`flex justify-between items-center w-full text-left text-white text-2xl font-bold transition ${
+  className={`flex justify-between items-center w-full text-left text-white uppercase tracking-widest text-2xl font-bold transition ${
     !isMobile ? 'hover:text-green-400' : ''
   }`}
   onClick={() => setShowsOpen(!showsOpen)}
@@ -171,8 +174,8 @@ export default function Layout() {
                 )}
               </div>
 
-              <NavLink onClick={() => setMobileOpen(false)} to="/merch" className={navLinkClass}>SHOP</NavLink>
-              <NavLink onClick={() => setMobileOpen(false)} to="/booking" className={navLinkClass}>BOOKING</NavLink>
+              <NavLink onClick={() => setMobileOpen(false)} to="/merch" className={mobileNavLinkClass}>SHOP</NavLink>
+              <NavLink onClick={() => setMobileOpen(false)} to="/booking" className={mobileNavLinkClass}>BOOKING</NavLink>
             </div>
 
             <div className="mt-16 pt-6 border-t border-purple-700 text-sm text-gray-400 text-center">
