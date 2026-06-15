@@ -164,7 +164,7 @@ export default function PhotoGallery() {
       <PageHero
         image="/photos3.webp"
         title="Live Photos"
-        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">A different night every time</span>}
+        subtitle={<span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">Say cheese</span>}
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"
         imageClass="object-[65%_center] sm:object-center brightness-50 scale-85 transition duration-[2000ms]"
         titleColor="purple"
@@ -174,14 +174,12 @@ export default function PhotoGallery() {
       <section className="max-w-[1600px] mx-auto px-3 sm:px-6 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
           <p className="text-green-400 text-sm font-bold uppercase tracking-[0.28em] mb-3">
-            Randomly selected from {photoPool.length.toLocaleString()} photos
+            Randomly selected 
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-purple-200">
-            200 moments from the stage
+            Moments from the stage
           </h1>
-          <p className="mt-4 text-purple-300/80 text-base sm:text-lg">
-            Every visit pulls a fresh mix from every uploaded show. Select any photo to open the carousel.
-          </p>
+         
           <button
             type="button"
             onClick={reshuffle}
