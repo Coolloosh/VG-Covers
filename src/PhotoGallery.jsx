@@ -5,6 +5,14 @@ import PageHero from './PageHero';
 import { showData } from './videoData';
 
 const SAMPLE_SIZE = 200;
+const THUMBNAIL_ASPECTS = [
+  'aspect-[4/3]',
+  'aspect-[3/4]',
+  'aspect-square',
+  'aspect-[4/5]',
+  'aspect-[3/2]',
+  'aspect-[5/4]',
+];
 
 const allPhotos = Object.entries(showData).reduce((pool, [slug, show]) => {
   if (!Array.isArray(show.photos)) return pool;
@@ -35,6 +43,52 @@ function getRandomPhotos() {
   }
 
   return shuffled.slice(0, Math.min(SAMPLE_SIZE, shuffled.length));
+}
+
+function GalleryPhoto({ photo, index, onOpen }) {
+  const [loaded, setLoaded] = useState(false);
+  const aspectClass = THUMBNAIL_ASPECTS[index % THUMBNAIL_ASPECTS.length];
+
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className={`group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-purple-900/70 bg-zinc-950 text-left shadow-lg transition sm:mb-5 hover:-translate-y-1 hover:border-purple-500 hover:shadow-purple-900/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 ${aspectClass}`}
+      aria-label={`Open photo ${index + 1} from ${photo.title}`}
+    >
+      <span
+        className={`absolute inset-0 bg-gradient-to-br from-zinc-950 via-purple-950/40 to-zinc-950 transition-opacity duration-500 ${
+          loaded ? 'opacity-0' : 'animate-pulse opacity-100'
+        }`}
+        aria-hidden="true"
+      />
+      <img
+        src={photo.src}
+        alt={`${photo.title}${photo.location ? ` in ${photo.location}` : ''}`}
+        loading={index < 12 ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchPriority={index < 5 ? 'high' : 'auto'}
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+        className={`absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:brightness-75 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      <span className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black via-black/75 to-transparent px-4 pb-4 pt-14 sm:block sm:translate-y-3 sm:opacity-0 sm:transition sm:duration-300 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
+        <span className="flex items-end justify-between gap-3">
+          <span>
+            <span className="block text-sm font-bold text-white">{photo.title}</span>
+            {(photo.date || photo.location) && (
+              <span className="mt-1 block text-xs text-purple-200">
+                {[photo.date, photo.location].filter(Boolean).join(' · ')}
+              </span>
+            )}
+          </span>
+          <Maximize2 size={17} className="shrink-0 text-green-400" />
+        </span>
+      </span>
+    </button>
+  );
 }
 
 export default function PhotoGallery() {
@@ -91,6 +145,20 @@ export default function PhotoGallery() {
     };
   }, [lightboxIndex, photos.length]);
 
+  useEffect(() => {
+    if (lightboxIndex === null || photos.length === 0) return;
+
+    const adjacentPhotos = [
+      photos[(lightboxIndex - 1 + photos.length) % photos.length],
+      photos[(lightboxIndex + 1) % photos.length],
+    ];
+
+    adjacentPhotos.forEach((photo) => {
+      const image = new Image();
+      image.src = photo.src;
+    });
+  }, [lightboxIndex, photos]);
+
   return (
     <main className="min-h-screen bg-black text-white font-sans">
       <PageHero
@@ -126,33 +194,12 @@ export default function PhotoGallery() {
 
         <div className="columns-2 gap-3 sm:columns-3 sm:gap-5 lg:columns-4 xl:columns-5">
           {photos.map((photo, index) => (
-            <button
-              type="button"
+            <GalleryPhoto
               key={photo.src}
-              onClick={() => setLightboxIndex(index)}
-              className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-purple-900/70 bg-zinc-950 text-left shadow-lg transition sm:mb-5 hover:-translate-y-1 hover:border-purple-500 hover:shadow-purple-900/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
-              aria-label={`Open photo ${index + 1} from ${photo.title}`}
-            >
-              <img
-                src={photo.src}
-                alt={`${photo.title}${photo.location ? ` in ${photo.location}` : ''}`}
-                loading={index < 10 ? 'eager' : 'lazy'}
-                className="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:brightness-75"
-              />
-              <span className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black via-black/75 to-transparent px-4 pb-4 pt-14 sm:block sm:translate-y-3 sm:opacity-0 sm:transition sm:duration-300 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                <span className="flex items-end justify-between gap-3">
-                  <span>
-                    <span className="block text-sm font-bold text-white">{photo.title}</span>
-                    {(photo.date || photo.location) && (
-                      <span className="mt-1 block text-xs text-purple-200">
-                        {[photo.date, photo.location].filter(Boolean).join(' · ')}
-                      </span>
-                    )}
-                  </span>
-                  <Maximize2 size={17} className="shrink-0 text-green-400" />
-                </span>
-              </span>
-            </button>
+              photo={photo}
+              index={index}
+              onOpen={() => setLightboxIndex(index)}
+            />
           ))}
         </div>
       </section>
