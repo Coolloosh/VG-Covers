@@ -41,8 +41,8 @@ function SponsorsSection() {
                 </span>
               </div>
               <p className="mt-3 translate-y-1 text-sm leading-6 text-purple-100 opacity-80 transition duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-                Family-owned Elite Linen Services cost-effectively manages
-                linen and uniform needs, from clean linens to bar towels, so
+                Family owned linen service offering cost-effective management of
+                linen and uniform needs so
                 businesses can stay focused on their customers.
               </p>
             </div>
