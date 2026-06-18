@@ -36,11 +36,24 @@ export default function LoginPage() {
     }));
   };
 
-  const formatFirebaseError = (message) =>
-    message
+  const formatFirebaseError = (errorCode, message) => {
+    const loginErrors = [
+      'auth/invalid-credential',
+      'auth/user-not-found',
+      'auth/wrong-password',
+      'auth/invalid-email',
+      'auth/too-many-requests',
+    ];
+
+    if (mode === 'login' && loginErrors.includes(errorCode)) {
+      return 'Invalid username or password.';
+    }
+
+    return message
       .replace('Firebase: ', '')
       .replace(/\s*\(auth\/.*\)\.?$/, '')
       .replaceAll('-', ' ');
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -58,7 +71,7 @@ export default function LoginPage() {
       }
       navigate(returnTo);
     } catch (err) {
-      setError(formatFirebaseError(err.message || 'Something went wrong.'));
+      setError(formatFirebaseError(err.code, err.message || 'Something went wrong.'));
     } finally {
       setSubmitting(false);
     }
@@ -77,7 +90,7 @@ export default function LoginPage() {
       await resetPassword(email);
       setStatus('Password reset email sent.');
     } catch (err) {
-      setError(formatFirebaseError(err.message || 'Unable to send reset email.'));
+      setError(formatFirebaseError(err.code, err.message || 'Unable to send reset email.'));
     }
   };
 
