@@ -57,7 +57,7 @@ export default function VideoGallery() {
         title="Live Videos"
         subtitle={
           <span className="text-purple-400 text-2xl md:text-2xl italic tracking-wide drop-shadow-[0_0_25px_rgba(0,255,0,0.3)] animate-fade-in-slow opacity-90">
-            Take a peak
+            Take a peek
           </span>
         }
         gradientClass="bg-gradient-to-b from-transparent via-black/30 to-black"

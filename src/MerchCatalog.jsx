@@ -29,7 +29,7 @@ export default function MerchCatalog() {
         </div>
       </section>
 
-      <div className="-mt-22 relative z-20 px-6 pt-20 pb-24">
+      <div className="-mt-20 relative z-20 px-6 pt-20 pb-24">
         <h1 className="text-4xl font-bold text-purple-400 mb-12 text-center">All Merch</h1>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {merchItems.map((item) => (

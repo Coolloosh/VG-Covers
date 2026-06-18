@@ -67,13 +67,13 @@ export default function PhotoGalleryDetail() {
         subtitle={<span className="text-purple-300 text-xl tracking-wide italic">{show.date} – {show.location}</span>}
       />
 
-      <section className="max-w-6xl mx-auto py-15 px-6">
+      <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {photos.slice(0, visibleCount).map((img, i) => (
             <motion.div
               key={i}
               whileHover={isMobile ? {} : { scale: 1.03 }}
-              className="w-full h-64 overflow-hidden rounded-xl shadow-md cursor-pointer transition-transform"
+              className="w-full h-64 overflow-hidden rounded-xl border border-purple-900/70 bg-zinc-950 shadow-md cursor-pointer transition-transform"
               onClick={() => setLightboxIndex(i)}
             >
               <img
@@ -99,31 +99,32 @@ export default function PhotoGalleryDetail() {
           </Link>
         </div>
 
-        <footer className="bg-black py-6 text-center text-sm text-gray-500">
-          <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
-          <p>
-            Follow us:
-            <a
-              href="https://instagram.com/vanylla.godzylla"
-              className="hover:text-pink-400 ml-1"
-            >
-              Instagram
-            </a>{' '}•
-            <a
-              href="#"
-              className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}
-            >
-              Facebook
-            </a>{' '}•
-            <a
-              href="https://www.youtube.com/@vanyllagodzylla1282"
-              className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}
-            >
-              YouTube
-            </a>
-          </p>
-        </footer>
       </section>
+
+      <footer className="bg-black py-6 text-center text-sm text-gray-500">
+        <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
+        <p>
+          Follow us:
+          <a
+            href="https://instagram.com/vanylla.godzylla"
+            className="hover:text-pink-400 ml-1"
+          >
+            Instagram
+          </a>{' '}•
+          <a
+            href="#"
+            className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}
+          >
+            Facebook
+          </a>{' '}•
+          <a
+            href="https://www.youtube.com/@vanyllagodzylla1282"
+            className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}
+          >
+            YouTube
+          </a>
+        </p>
+      </footer>
 
       {lightboxIndex !== null && (
         <div

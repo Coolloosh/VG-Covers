@@ -10,7 +10,7 @@ export default function VideoGalleryDetail() {
   const loadRef = useRef(null);
 
   const gallery = showData[slug];
-  const { pagetitle, heroImages, videos } = gallery || {};
+  const { pagetitle, heroImages, videos = [] } = gallery || {};
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +31,10 @@ export default function VideoGalleryDetail() {
     };
   }, [visibleCount, videos.length]);
 
+  if (!gallery) {
+    return <div className="min-h-screen bg-black py-20 text-center text-white">Show not found.</div>;
+  }
+
   return (
     <main className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       <PageHero
@@ -38,7 +42,7 @@ export default function VideoGalleryDetail() {
         title={pagetitle}
       />
 
-      <section className="max-w-6xl mx-auto py-15 px-6">
+      <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           {videos.slice(0, visibleCount).map((id, i) => (
             <div key={i} className="rounded-xl border border-purple-700 shadow-lg overflow-hidden bg-gray-950">
@@ -66,16 +70,17 @@ export default function VideoGalleryDetail() {
           </Link>
         </div>
 
-        <footer className="bg-black py-6 text-center text-sm text-gray-500">
-          <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
-          <p>
-            Follow us:
-            <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400 ml-1">Instagram</a> •
-            <a href="#" className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}>Facebook</a> •
-            <a href="https://www.youtube.com/@vanyllagodzylla1282" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>YouTube</a>
-          </p>
-        </footer>
       </section>
+
+      <footer className="bg-black py-6 text-center text-sm text-gray-500">
+        <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
+        <p>
+          Follow us:
+          <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400 ml-1">Instagram</a> •
+          <a href="#" className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}>Facebook</a> •
+          <a href="https://www.youtube.com/@vanyllagodzylla1282" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>YouTube</a>
+        </p>
+      </footer>
     </main>
   );
 }

@@ -54,7 +54,7 @@ export default function FanclubSignupPage() {
                     />
         
         
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-6 py-16">
         
      
         <h1 className="text-4xl font-bold text-green-400 mb-6 text-center">Join the V.I.G. Fanclub</h1>
@@ -63,23 +63,23 @@ export default function FanclubSignupPage() {
         {submitted ? (
           <p className="text-green-400 font-semibold text-center">Thank you for signing up!</p>
         ) : (
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-950 p-8 rounded-xl border border-purple-700 shadow-xl">
-            <input type="text" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" required className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <input type="text" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" required className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" required className="p-3 rounded bg-gray-800 border border-purple-500 col-span-full" />
-            <input type="date" name="dob" value={form.dob} onChange={handleChange} className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <select name="gender" value={form.gender} onChange={handleChange} className="p-3 rounded bg-gray-800 border border-purple-500">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 rounded-2xl border border-purple-900/80 bg-zinc-950/80 p-5 shadow-[0_0_40px_rgba(126,34,206,0.14)] sm:p-7 md:grid-cols-2">
+            <input type="text" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="text" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" required className="col-span-full rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="date" name="dob" value={form.dob} onChange={handleChange} className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <select name="gender" value={form.gender} onChange={handleChange} className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500">
               <option value="">Gender</option>
               <option value="female">Female</option>
               <option value="male">Male</option>
               <option value="nonbinary">Non-binary</option>
               <option value="prefer-not-to-say">Prefer not to say</option>
             </select>
-            <input type="text" name="street" value={form.street} onChange={handleChange} placeholder="Street Address" required className="p-3 rounded bg-gray-800 border border-purple-500 col-span-full" />
-            <input type="text" name="city" value={form.city} onChange={handleChange} placeholder="City" required className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <input type="text" name="state" value={form.state} onChange={handleChange} placeholder="State/Province" required className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <input type="text" name="zip" value={form.zip} onChange={handleChange} placeholder="ZIP / Postal Code" required className="p-3 rounded bg-gray-800 border border-purple-500" />
-            <input type="text" name="country" value={form.country} onChange={handleChange} placeholder="Country" required className="p-3 rounded bg-gray-800 border border-purple-500" />
+            <input type="text" name="street" value={form.street} onChange={handleChange} placeholder="Street Address" required className="col-span-full rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="text" name="city" value={form.city} onChange={handleChange} placeholder="City" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="text" name="state" value={form.state} onChange={handleChange} placeholder="State/Province" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="text" name="zip" value={form.zip} onChange={handleChange} placeholder="ZIP / Postal Code" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
+            <input type="text" name="country" value={form.country} onChange={handleChange} placeholder="Country" required className="rounded-xl border border-purple-900 bg-black/70 p-3.5 text-white placeholder-purple-300/70 outline-none transition focus:border-green-500 focus:ring-1 focus:ring-green-500" />
             <button
   type="submit"
   className={`col-span-full bg-green-500 text-black font-bold py-3 rounded-full shadow-md transition ${

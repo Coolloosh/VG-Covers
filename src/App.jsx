@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"; // ✅ correct
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './AuthContext';
 import VanyllaGodzyllaSite from './VanyllaGodzyllaSite';
 import DeerParkShow1 from './shows/deer-park-11-29.jsx';
 import DeerParkShow2 from './shows/dp-3-7.jsx';
@@ -41,6 +42,7 @@ import ShowDetail from './ShowDetail';
 import ScrollToTop from './ScrollToTop';
 import CoverRelease from "./CoverRelease.jsx";
 import InPersonCheckout from "./InPersonCheckout.jsx";
+import LoginPage from "./LoginPage.jsx";
 import RooneyShow from "./shows/rooney-7-12.jsx";
 import SplitzShow from "./shows/splitz.jsx";
 import ConchShow from "./shows/conch-8-8.jsx";
@@ -78,6 +80,7 @@ function SuccessPage() {
 export default function App() {
   return (
     <CartProvider> {/* ✅ Wrap the whole app */}
+      <AuthProvider>
       <Router>
       <ScrollToTop /> 
         <Routes>
@@ -88,6 +91,7 @@ export default function App() {
             <Route path="/music" element={<MusicCatalog />} />
             <Route path="/music/:releaseId" element={<MusicRelease />} />
             <Route path="/booking" element={<BookingPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/merch" element={<MerchCatalog />} />
             <Route path="/merch/:itemId" element={<MerchItem />} /> {/* Now directly uses MerchItem */}
             <Route path="/shows" element={<UpcomingShowsPage />} />
@@ -141,6 +145,7 @@ export default function App() {
         <Analytics />
         <SpeedInsights />
       </Router>
+      </AuthProvider>
     </CartProvider>
   );
 }

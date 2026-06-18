@@ -1,14 +1,61 @@
 // VanyllaGodzyllaSite.jsx — Hide mobile scrollbars + prevent horizontal drag on swipe
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import MerchTeaser from './MerchTeaser';
 import FeaturedLiveVideos from './FeaturedLiveVideos';
 import { useCart } from './CartContext';
 
+function SponsorsSection() {
+  return (
+    <section className="bg-black px-6 py-14 sm:py-16 border-t border-purple-800/40">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 text-center">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-green-400">
+            Thank you to
+          </p>
+          <h2 className="text-3xl font-extrabold uppercase tracking-wide text-purple-300 sm:text-4xl">
+            Our Sponsors
+          </h2>
+        </div>
+
+        <div className="flex justify-center">
+          <a
+            href="https://elitelinenservices.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="group block w-full max-w-xl overflow-hidden border border-purple-800 bg-zinc-950/80 shadow-[0_0_30px_rgba(126,34,206,0.18)] transition-transform duration-300 ease-out hover:-translate-y-1 hover:border-green-400 hover:shadow-[0_0_35px_rgba(74,222,128,0.16)] focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+            aria-label="Visit Elite Linen Services"
+          >
+            <div className="flex h-52 items-center justify-center overflow-hidden bg-[#606060] px-8 py-8 sm:h-60">
+              <img
+                src="/elite-linen-logo.png"
+                alt="Elite Linen Services"
+                className="max-h-36 w-full max-w-md object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04] group-focus-visible:scale-[1.04] sm:max-h-44"
+                loading="lazy"
+              />
+            </div>
+            <div className="border-t border-purple-900/70 bg-black/80 px-5 py-4 sm:px-6">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-lg font-extrabold text-white">Elite Linen Services</p>
+                <span className="text-sm font-bold uppercase tracking-[0.18em] text-green-400">
+                  Visit site
+                </span>
+              </div>
+              <p className="mt-3 translate-y-1 text-sm leading-6 text-purple-100 opacity-80 transition duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                Family-owned Elite Linen Services cost-effectively manages
+                linen and uniform needs, from clean linens to bar towels, so
+                businesses can stay focused on their customers.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function VanyllaGodzyllaSite() {
   const { cart, updateCartItem, updateCartSize, getTotal } = useCart();
   const [cartOpen, setCartOpen] = useState(false);
-  const [showVigPrompt, setShowVigPrompt] = useState(false);
   const [bookingInquiry, setBookingInquiry] = useState({
     name: '',
     email: '',
@@ -16,14 +63,6 @@ export default function VanyllaGodzyllaSite() {
     estimatedDate: '',
     message: '',
   });
-
-  useEffect(() => {
-    const hasSeen = localStorage.getItem('vigPrompt');
-    if (!hasSeen) {
-      setTimeout(() => setShowVigPrompt(true), 10000);
-      localStorage.setItem('vigPrompt', 'true');
-    }
-  }, []);
 
   const heroImages = [
     { desktop: "/HeroImg1.jpeg", mobile: "/gal11.webp" },
@@ -240,23 +279,8 @@ export default function VanyllaGodzyllaSite() {
             </form>
           </div>
         </section>
+        <SponsorsSection />
       </section>
-
-      {showVigPrompt && (
-        <div className="fixed bottom-6 left-6 bg-purple-700 text-white p-4 rounded-xl shadow-lg z-50 max-w-xs animate-fade-in">
-          <p className="text-sm mb-3">Want early access to merch & exclusive content?</p>
-          <Link
-            to="/fanclub"
-            className="inline-block bg-green-500 hover:bg-green-400 text-black px-4 py-2 rounded-full font-bold shadow"
-          >
-            Become a V.I.G.
-          </Link>
-          <button
-            onClick={() => setShowVigPrompt(false)}
-            className="absolute top-2 right-3 text-white text-xl font-bold"
-          >×</button>
-        </div>
-      )}
 
       <footer className="bg-black py-6 mt-20 text-center text-sm text-gray-500">
         <p>© 2025 Vanylla Godzylla. All rights reserved.</p>
