@@ -34,7 +34,7 @@ export const merchItems = [
   {
     id: "stickerpack",
     name: "Sticker Pack",
-    price: 1000,
+    price: 50,
     image: "/stickerpack.webp",
     description: "6 machine-cut vinyl stickers containing the Vanylla Godzylla Logo.",
   },
