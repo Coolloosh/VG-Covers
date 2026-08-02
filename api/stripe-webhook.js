@@ -328,6 +328,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ received: true });
   } catch (error) {
     console.error('Order notification failed:', error);
-    return res.status(500).json({ error: 'Order notification failed' });
+    return res.status(500).json({
+      error: 'Order notification failed',
+      detail: error.message,
+    });
   }
 }
