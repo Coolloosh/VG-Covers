@@ -130,7 +130,7 @@ export default function App() {
             <Route path="/gallery/videos" element={<VideoGallery />} />
             <Route path="/gallery/photos/:slug" element={<PhotoGalleryDetail />} />
             <Route path="/gallery/videos/:slug" element={<VideoGalleryDetail />} />
-            <Route path="/fanclub" element={<FanclubSignupPage />} /> // ✅ NEW
+            <Route path="/fanclub" element={<FanclubSignupPage />} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/cancel" element={<CancelPage />} />
             <Route path="/music/covers/:coverId" element={<CoverRelease />} />

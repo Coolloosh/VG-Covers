@@ -3,13 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useCart } from './CartContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PageHero from './PageHero';
-
-const merchItems = [
-  { id: "SkullShirt", name: "VG Skull Tee", price: 2500, image: "/SkullShirt.webp", badge: "New" },
-  { id: "OGShirt", name: "OG Tee", price: 2500, image: "/OGShirt.png", badge: "Hot" },
-  { id: "stickerpack", name: "Sticker Pack", price: 1000, image: "/stickerpack.webp" },
-  { id: "poster", name: "Show Poster Medley", price: 500, image: "/posters.webp", badge: "Limited" },
-];
+import { getMerchImage, merchItems } from './merchData';
 
 export default function InPersonCheckout() {
   const { cart, addToCart, clearCart } = useCart();
@@ -17,6 +11,7 @@ export default function InPersonCheckout() {
   const navigate = useNavigate();
   const [feedbackId, setFeedbackId] = useState(null);
   const [quantities, setQuantities] = useState({});
+  const [selectedColors, setSelectedColors] = useState({});
 
   // Clear cart if navigating away from this page (excluding Stripe)
   useEffect(() => {
@@ -31,9 +26,15 @@ export default function InPersonCheckout() {
 
   const handleAdd = (item) => {
     const qty = parseInt(quantities[item.id] || 1, 10);
+    const selectedColor = selectedColors[item.id] || item.colors?.[0]?.value || '';
     if (!isNaN(qty) && qty > 0) {
       for (let i = 0; i < qty; i++) {
-        addToCart({ name: item.name, price: item.price, image: item.image });
+        addToCart({
+          name: item.name,
+          price: item.price,
+          image: getMerchImage(item, selectedColor),
+          color: selectedColor,
+        });
       }
       setFeedbackId(item.id);
       setTimeout(() => setFeedbackId(null), 1500);
@@ -70,6 +71,7 @@ export default function InPersonCheckout() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {merchItems.map((item) => {
             const qty = quantities[item.id] || '1';
+            const selectedColor = selectedColors[item.id] || item.colors?.[0]?.value || '';
             return (
               <div
                 key={item.id}
@@ -77,7 +79,7 @@ export default function InPersonCheckout() {
               >
                 <div className="relative h-72 w-full overflow-hidden rounded-t-xl">
                   <img
-                    src={item.image}
+                    src={getMerchImage(item, selectedColor)}
                     alt={item.name}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -92,6 +94,28 @@ export default function InPersonCheckout() {
                   <p className="text-green-400 font-semibold text-sm mt-1">
                     ${(item.price / 100).toFixed(2)}
                   </p>
+                  {item.colors && (
+                    <div className="mt-3 grid grid-cols-3 gap-2">
+                      {item.colors.map((color) => (
+                        <button
+                          key={color.value}
+                          type="button"
+                          onClick={() => setSelectedColors((prev) => ({ ...prev, [item.id]: color.value }))}
+                          className={`flex items-center justify-center gap-1 rounded-lg border px-2 py-1 text-xs font-bold transition ${
+                            selectedColor === color.value
+                              ? 'border-green-400 text-green-400 bg-green-400/10'
+                              : 'border-purple-700 text-purple-200 bg-gray-950 hover:border-purple-400'
+                          }`}
+                        >
+                          <span
+                            className="h-3 w-3 rounded-full border border-white/40"
+                            style={{ backgroundColor: color.swatch }}
+                          />
+                          {color.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   <div className="mt-3 flex items-center justify-center gap-2">
                     <button
                       className="px-2 py-1 bg-purple-600 text-white rounded hover:bg-purple-500"

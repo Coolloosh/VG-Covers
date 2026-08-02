@@ -2,13 +2,7 @@
 import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const merchItems = [
-  { id: "SkullShirt", name: "VG Skull Tee", price: 2500, image: "/SkullShirt.webp", badge: "New" },
-  { id: "OGShirt", name: "OG Tee", price: 2500, image: "/OGShirt.png", badge: "Hot" },
-  { id: "stickerpack", name: "Sticker Pack", price: 1000, image: "/stickerpack.webp" },
-  { id: "poster", name: "Show Poster Medley", price: 500, image: "/posters.webp", badge: "Limited" },
-];
+import { merchItems } from './merchData';
 
 export default function MerchTeaser() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;

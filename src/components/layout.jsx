@@ -349,6 +349,7 @@ export default function Layout() {
           </select>
         </div>
       )}
+      {item.color && <p className="text-sm text-purple-400 mb-2">Color: {item.color}</p>}
       <p className="text-sm">${(item.price / 100).toFixed(2)} each</p>
       <div className="flex items-center gap-2 mt-2">
         <button onClick={() => updateCartItem(item.uid, item.quantity - 1)} className="px-2 py-1 bg-gray-800 rounded">-</button>

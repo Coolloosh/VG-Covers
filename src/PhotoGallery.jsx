@@ -174,7 +174,7 @@ export default function PhotoGallery() {
       <section className="max-w-[1600px] mx-auto px-3 sm:px-6 py-14 sm:py-20">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
           <p className="text-green-400 text-sm font-bold uppercase tracking-[0.28em] mb-3">
-            Randomly selected 
+            Random 
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-purple-200">
             Moments from the stage

@@ -18,7 +18,11 @@ export default async function handler(req, res) {
     }
 
     const line_items = cartItems.map((item) => {
-      const description = item.size ? `Size: ${item.size}` : undefined;
+      const descriptionParts = [
+        item.size ? `Size: ${item.size}` : '',
+        item.color ? `Color: ${item.color}` : '',
+      ].filter(Boolean);
+      const description = descriptionParts.length ? descriptionParts.join(' | ') : undefined;
     
       return {
         price_data: {
@@ -29,6 +33,7 @@ export default async function handler(req, res) {
             ...(description && { description }),
             metadata: {
               ...(item.size && { size: item.size }),
+              ...(item.color && { color: item.color }),
             }
           },
           unit_amount: item.price,
@@ -44,6 +49,9 @@ export default async function handler(req, res) {
       line_items,
       success_url: `${req.headers.origin}/success`,
       cancel_url: `${req.headers.origin}/cancel`,
+      metadata: {
+        pickup: pickup ? 'true' : 'false',
+      },
     };
 
     if (!pickup) {
