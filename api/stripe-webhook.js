@@ -70,9 +70,11 @@ function buildOrderSummary(session, lineItems) {
     };
   });
 
-  return {
+    return {
     sessionId: session.id,
-    paymentIntent: session.payment_intent || '',
+    paymentIntent: typeof session.payment_intent === 'string'
+      ? session.payment_intent
+      : session.payment_intent?.id || '',
     paymentStatus: session.payment_status || '',
     mode: session.metadata?.pickup === 'true' ? 'Pickup' : 'Shipping',
     createdAt: new Date((session.created || Math.floor(Date.now() / 1000)) * 1000).toISOString(),
@@ -312,7 +314,7 @@ export default async function handler(req, res) {
 
   try {
     const session = await stripe.checkout.sessions.retrieve(event.data.object.id, {
-      expand: ['payment_intent'],
+      expand: [],
     });
     const lineItems = await stripe.checkout.sessions.listLineItems(session.id, {
       limit: 100,
@@ -325,7 +327,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ received: true });
   } catch (error) {
-    console.error('Order notification failed:', error.message);
+    console.error('Order notification failed:', error);
     return res.status(500).json({ error: 'Order notification failed' });
   }
 }
