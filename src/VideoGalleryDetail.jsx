@@ -78,7 +78,7 @@ export default function VideoGalleryDetail() {
           Follow us:
           <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400 ml-1">Instagram</a> •
           <a href="#" className={`ml-1 transition ${!isMobile ? 'hover:text-blue-400' : ''}`}>Facebook</a> •
-          <a href="https://www.youtube.com/@vanyllagodzylla1282" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>YouTube</a>
+          <a href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg" className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}>YouTube</a>
         </p>
       </footer>
     </main>

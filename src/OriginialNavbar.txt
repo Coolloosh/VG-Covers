@@ -50,7 +50,7 @@ export default function Layout() {
             <div className="flex gap-3 pr-4">
               <a href="https://www.instagram.com/vanylla.godzylla/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-instagram text-xl"></i></a>
               <a href="https://www.tiktok.com/@vanyllagodzylla" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-tiktok text-xl"></i></a>
-              <a href="https://www.youtube.com/@vanyllagodzylla1282" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-youtube text-xl"></i></a>
+              <a href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-youtube text-xl"></i></a>
               <a href="https://open.spotify.com/artist/12x1KFm8qY060D9wyrjyqo?si=vvyRemjhS3i3DW7wuVvQzg" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-spotify text-xl"></i></a>
               <a href="https://www.facebook.com/people/Vanylla-Godzylla/61569538812755/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-facebook-f text-xl"></i></a>
             </div>

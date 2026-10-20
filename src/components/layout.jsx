@@ -212,7 +212,7 @@ export default function Layout() {
               <p>© 2025 Vanylla Godzylla LLC. All rights reserved.</p>
               <div className="mt-3 flex justify-center gap-4 text-xl">
                 <a href="https://instagram.com/vanylla.godzylla" className="hover:text-pink-400">Instagram</a>
-                <a href="https://www.youtube.com/@vanyllagodzylla1282" className="hover:text-red-400">YouTube</a>
+                <a href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg" className="hover:text-red-400">YouTube</a>
                 <a href="https://open.spotify.com/artist/12x1KFm8qY060D9wyrjyqo" className="hover:text-green-400">Spotify</a>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function Layout() {
               <div className="flex gap-3 pr-4">
                 <a href="https://www.instagram.com/vanylla.godzylla/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-instagram text-xl"></i></a>
                 <a href="https://www.tiktok.com/@vanyllagodzylla" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-tiktok text-xl"></i></a>
-                <a href="https://www.youtube.com/@vanyllagodzylla1282" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-youtube text-xl"></i></a>
+                <a href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-youtube text-xl"></i></a>
                 <a href="https://open.spotify.com/artist/12x1KFm8qY060D9wyrjyqo?si=vvyRemjhS3i3DW7wuVvQzg" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-spotify text-xl"></i></a>
                 <a href="https://www.facebook.com/people/Vanylla-Godzylla/61569538812755/" target="_blank" rel="noreferrer" className="hover:text-green-400 transition"><i className="fa-brands fa-facebook-f text-xl"></i></a>
               </div>

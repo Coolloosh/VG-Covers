@@ -199,7 +199,7 @@ export default function VanyllaGodzyllaSite() {
                 <a href="https://www.tiktok.com/@vanyllagodzylla" target="_blank" rel="noreferrer" className="text-purple-200 hover:text-green-400 transition" aria-label="TikTok">
                   <i className="fa-brands fa-tiktok"></i>
                 </a>
-                <a href="https://www.youtube.com/@vanyllagodzylla1282" target="_blank" rel="noreferrer" className="text-purple-200 hover:text-green-400 transition" aria-label="YouTube">
+                <a href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg" target="_blank" rel="noreferrer" className="text-purple-200 hover:text-green-400 transition" aria-label="YouTube">
                   <i className="fa-brands fa-youtube"></i>
                 </a>
                 <a href="https://www.facebook.com/people/Vanylla-Godzylla/61569538812755/" target="_blank" rel="noreferrer" className="text-purple-200 hover:text-green-400 transition" aria-label="Facebook">
@@ -301,7 +301,7 @@ export default function VanyllaGodzyllaSite() {
     Facebook
   </a> • 
   <a
-    href="https://www.youtube.com/@vanyllagodzylla1282"
+    href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg"
     className={`ml-1 transition ${
       !isMobile ? 'hover:text-red-500' : ''
     }`}

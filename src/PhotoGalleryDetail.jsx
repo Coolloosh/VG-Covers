@@ -118,7 +118,7 @@ export default function PhotoGalleryDetail() {
             Facebook
           </a>{' '}•
           <a
-            href="https://www.youtube.com/@vanyllagodzylla1282"
+            href="https://www.youtube.com/channel/UCchLYJg5lYEbyljhsc61gtg"
             className={`ml-1 transition ${!isMobile ? 'hover:text-red-500' : ''}`}
           >
             YouTube
